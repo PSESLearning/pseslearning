@@ -1,0 +1,243 @@
+@media screen and (max-width: 1131px) {
+    .features-grid,
+    .contact-layout,
+    .footer-container,
+    .resources-section,
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-brand {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .book-card a {
+        text-align: center;
+    }
+
+    .book-card img {
+        max-width: 160px;
+    }
+    
+    .image-grid{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .navbar {
+        border-radius: 24px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #nav-links {
+        position: fixed;
+        top: 88px;
+        right: 16px;
+        width: min(320px, calc(100% - 32px));
+        padding: 18px;
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        box-shadow: 0 22px 42px rgba(18, 41, 96, 0.16);
+        backdrop-filter: blur(16px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    #nav-links.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    #nav-links a {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .navbar {
+        border-radius: 24px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #nav-links {
+        position: fixed;
+        top: 88px;
+        right: 16px;
+        width: min(320px, calc(100% - 32px));
+        padding: 18px;
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        box-shadow: 0 22px 42px rgba(18, 41, 96, 0.16);
+        backdrop-filter: blur(16px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    #nav-links.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    #nav-links a {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .image-grid,
+    .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-shell {
+        width: 94%;
+        padding: 28px 25px 32px;
+
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .hero-topline {
+        margin-bottom: 25px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 220px;
+        margin-top: 5px;
+    }
+
+    .surface-section,
+    .contact-card,
+    .contact-panel {
+        padding: 24px;
+    }
+
+    .navbar,
+    .page-shell,
+    .footer-container,
+    .footer-bottom {
+        width: calc(100% - 24px);
+    }
+
+    .page-shell {
+        padding-bottom: 70px;
+    }
+
+    .section-heading p,
+    .book-card-content p,
+    .resource-card p,
+    .feature-card p,
+    .contact-card p,
+    .contact-panel p,
+    .about-note p {
+        font-size: 0.97rem;
+        line-height: 1.7;   
+    }
+
+    .feature-list,
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-methods a {
+        padding: 14px 16px;
+    }
+
+    .toggleTheme {
+        min-width: 78px;
+    }
+
+    .image-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .book-card a {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn,
+    .toggleTheme {
+        width: 100%;
+    }
+
+    .navbar {
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 20px;
+    }
+
+    .nav-logo {
+        flex: 1 1 auto;
+    }
+
+    .nav-logo img {
+        width: 135px;
+    }
+
+    .section-heading h2,
+    .contact-card h2 {
+        font-size: 2.1rem;
+    }
+
+    .surface-section {
+        border-radius: 24px;
+    }
+
+    .book-card-content h3 {
+        font-size: 1.45rem;
+    }
+
+    .btn-top {
+        min-width: 84px;
+        height: 48px;
+        right: 14px;
+        bottom: 14px;
+        padding-right: 12px;
+    }
+
+    .image-grid{
+        grid-template-columns: 1fr;
+    }
+}

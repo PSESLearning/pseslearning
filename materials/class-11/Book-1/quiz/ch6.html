@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSES Learning - Political Science Quiz</title>
+
+    <link rel="icon" type="x-icon" href="../../../../images/image.png">
+
+    <link rel="stylesheet" href="../../../../CSS/quiz_style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <a href="../../../../index.html">
+            <img src="../../../../images/logo.svg" alt="PSES Adda Logo">
+        </a>
+
+        <h1>PSES Learning Quizzes</h1>
+
+        <span></span>
+
+        <div class="ham-box">
+
+            <div class="hamburger">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            Menu
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <ul id="nav-links">
+
+        <li>
+            <a href="../../../../index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="../../../../pages/class-11th.html">
+                Class 11
+            </a>
+        </li>
+
+        <li>
+            <a href="../../../../pages/class-12th.html">
+                Class 12
+            </a>
+        </li>
+
+        <li>
+            <a href="../../../../index.html#contact">
+                Contact
+            </a>
+        </li>
+
+        <li>
+            <a href="../../../../index.html#about">
+                About Us
+            </a>
+        </li>
+
+        <li>
+            <a href="../../../../pages/class-11/book-1/11th-b1-ch6.html">
+                Back
+            </a>
+        </li>
+
+    </ul>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <div class="quiz-wrapper">
+
+        <div class="quiz-card">
+
+            <h2>
+                Quiz - 100 Questions
+            </h2>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div class="progress-bar"></div>
+
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <p id="question">
+                Loading...
+            </p>
+
+
+            <!-- ERROR -->
+
+            <p id="answer-error"></p>
+
+
+            <!-- OPTIONS -->
+
+            <div class="cards"></div>
+            <div class="cards"></div>
+            <div class="cards"></div>
+            <div class="cards"></div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="quiz-buttons">
+
+                <button id="prev">
+                    ← Previous Question
+                </button>
+
+                <button id="submit">
+                    Submit Answer
+                </button>
+
+                <button id="next">
+                    Next Question →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* =====================================================
+           HAMBURGER MENU
+        ===================================================== */
+
+        const hamburger =
+            document.querySelector(".hamburger");
+
+        const menu =
+            document.getElementById("nav-links");
+
+
+        function toggleMenu() {
+
+            menu.classList.toggle("show");
+
+            hamburger.classList.toggle("active");
+
+        }
+
+
+        hamburger.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
+            toggleMenu();
+
+        });
+
+
+        document.addEventListener("click", (e) => {
+
+            if (
+                !menu.contains(e.target) &&
+                !hamburger.contains(e.target)
+            ) {
+
+                menu.classList.remove("show");
+
+                hamburger.classList.remove("active");
+
+            }
+
+        });
+
+
+        document
+            .querySelectorAll("#nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    menu.classList.remove("show");
+
+                    hamburger.classList.remove("active");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           QUIZ ELEMENTS
+        ===================================================== */
+
+        const cards =
+            document.querySelectorAll(".cards");
+
+        const questionEl =
+            document.getElementById("question");
+
+        const submitBtn =
+            document.getElementById("submit");
+
+        const nextBtn =
+            document.getElementById("next");
+
+        const prevBtn =
+            document.getElementById("prev");
+
+        const progressBar =
+            document.querySelector(".progress-bar");
+
+        const errorEl =
+            document.getElementById("answer-error");
+
+
+        /* =====================================================
+           QUIZ VARIABLES
+        ===================================================== */
+
+        let current = 0;
+
+        /*
+            Stores the selected answer of every question.
+
+            Example:
+            userAnswers[0] = 3
+            means question 1 -> option 4
+        */
+
+        let userAnswers =
+            new Array(100).fill(null);
+
+
+        /*
+            Stores whether each question
+            has already been submitted.
+        */
+
+        let submitted =
+            new Array(100).fill(false);
+
+
+        /* =====================================================
+           QUIZ DATA
+        ===================================================== */
+
+        const quizData = [
+
+            {
+                question: "1. न्यायपालिका का प्रमुख कार्य क्या है?",
+                options: [
+                    "कानून बनाना",
+                    "कानूनों को लागू करना",
+                    "विवादों का न्यायिक निपटारा और कानून की व्याख्या करना",
+                    "चुनाव कराना"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "2. स्वतंत्र न्यायपालिका की आवश्यकता मुख्यतः क्यों होती है?",
+                options: [
+                    "ताकि न्यायपालिका सरकार के नियंत्रण में रहे",
+                    "ताकि कानून के शासन और नागरिकों के अधिकारों की रक्षा हो सके",
+                    "ताकि संसद कानून न बना सके",
+                    "ताकि कार्यपालिका समाप्त हो जाए"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "3. 'Rule of Law' का मूल अर्थ क्या है?",
+                options: [
+                    "सभी व्यक्ति कानून के समान अधीन हों",
+                    "केवल सरकार कानून के अधीन हो",
+                    "केवल न्यायाधीश कानून के अधीन हों",
+                    "केवल गरीब लोग कानून के अधीन हों"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "4. न्यायपालिका की स्वतंत्रता का अर्थ क्या है?",
+                options: [
+                    "न्यायपालिका संविधान से ऊपर हो",
+                    "न्यायाधीश किसी भी कानून का पालन न करें",
+                    "न्यायपालिका राजनीतिक दबाव से मुक्त होकर न्याय कर सके",
+                    "न्यायपालिका संसद को भंग कर सके"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "5. न्यायपालिका की स्वतंत्रता का अर्थ यह नहीं है कि न्यायपालिका:",
+                options: [
+                    "संविधान के प्रति उत्तरदायी नहीं है",
+                    "बिना भय और पक्षपात के काम करे",
+                    "सरकार से स्वतंत्र हो",
+                    "कानून की व्याख्या करे"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "6. स्वतंत्र न्यायपालिका के संबंध में कौन-सा कथन सही है?",
+                options: [
+                    "न्यायपालिका मनमाने ढंग से कार्य कर सकती है",
+                    "न्यायपालिका संविधान और लोकतांत्रिक परंपराओं के प्रति जवाबदेह रहती है",
+                    "न्यायपालिका जनता से ऊपर है",
+                    "न्यायपालिका संसद का स्थान लेती है"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "7. भारत में न्यायपालिका की स्वतंत्रता सुनिश्चित करने का एक महत्वपूर्ण साधन क्या है?",
+                options: [
+                    "न्यायाधीशों का सुरक्षित कार्यकाल",
+                    "न्यायाधीशों का प्रत्यक्ष चुनाव",
+                    "न्यायाधीशों को हर वर्ष बदलना",
+                    "न्यायाधीशों को राजनीतिक दलों द्वारा चुनना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "8. न्यायाधीशों को सुरक्षा-ए-पद (security of tenure) देने का उद्देश्य क्या है?",
+                options: [
+                    "उन्हें चुनाव लड़ने देना",
+                    "उन्हें राजनीतिक दल बनाने देना",
+                    "उन्हें कार्यपालिका से ऊपर बनाना",
+                    "उन्हें भय या पक्षपात के बिना निर्णय लेने में सक्षम बनाना"
+                ],
+                correct: 3
+            },
+
+            {
+                question: "9. न्यायाधीशों को हटाने की प्रक्रिया कठिन रखने का प्रमुख उद्देश्य क्या है?",
+                options: [
+                    "न्यायाधीशों को राजनीतिक दबाव से बचाना",
+                    "न्यायपालिका को संसद से अलग करना",
+                    "न्यायाधीशों को कानून से मुक्त करना",
+                    "न्यायपालिका को चुनाव आयोग बनाना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "10. न्यायपालिका की वित्तीय स्वतंत्रता का संबंध किससे है?",
+                options: [
+                    "न्यायाधीश अपना बजट स्वयं बनाते हैं",
+                    "न्यायाधीश चुनाव लड़ सकते हैं",
+                    "न्यायाधीशों के वेतन और भत्ते विधायिका की सामान्य स्वीकृति पर निर्भर नहीं होते",
+                    "न्यायपालिका कर लगाती है"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "11. संसद सामान्यतः न्यायाधीशों के आचरण पर चर्चा कब कर सकती है?",
+                options: [
+                    "हर संसद सत्र में",
+                    "जब न्यायाधीश को हटाने की कार्यवाही चल रही हो",
+                    "किसी भी समय",
+                    "केवल बजट सत्र में"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "12. Contempt of Court की शक्ति का एक उद्देश्य क्या है?",
+                options: [
+                    "न्यायपालिका को कानून बनाने देना",
+                    "संसद को नियंत्रित करना",
+                    "न्यायिक प्रक्रिया और न्यायालय की गरिमा की रक्षा करना",
+                    "चुनाव करवाना"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "13. न्यायपालिका की स्वतंत्रता का संबंध किस लोकतांत्रिक सिद्धांत से सबसे अधिक है?",
+                options: [
+                    "Rule of Law",
+                    "बहुमत का शासन ही सर्वोच्च है",
+                    "एकदलीय शासन",
+                    "प्रत्यक्ष लोकतंत्र"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "14. भारत में न्यायाधीशों की नियुक्ति का प्रश्न किस कारण राजनीतिक रूप से महत्वपूर्ण रहा है?",
+                options: [
+                    "क्योंकि न्यायाधीश चुनाव लड़ते हैं",
+                    "क्योंकि न्यायाधीशों की संवैधानिक व्याख्या कानूनों के प्रभाव को प्रभावित कर सकती है",
+                    "क्योंकि न्यायाधीश बजट बनाते हैं",
+                    "क्योंकि न्यायाधीश प्रधानमंत्री चुनते हैं"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "15. सर्वोच्च न्यायालय के मुख्य न्यायाधीश की नियुक्ति के संबंध में लंबे समय तक कौन-सी परंपरा रही?",
+                options: [
+                    "सबसे कम उम्र के न्यायाधीश की नियुक्ति",
+                    "लोकसभा द्वारा चुनाव",
+                    "वरिष्ठतम न्यायाधीश को CJI नियुक्त करना",
+                    "प्रधानमंत्री द्वारा सीधे नियुक्ति"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "16. NCERT के अनुसार 1973 में CJI के रूप में किस न्यायाधीश की नियुक्ति ने वरिष्ठता की परंपरा को प्रभावित किया?",
+                options: [
+                    "H.R. Khanna",
+                    "M.H. Beg",
+                    "A.N. Ray",
+                    "V. Ramaswami"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "17. अन्य Supreme Court और High Court judges की नियुक्ति औपचारिक रूप से कौन करता है?",
+                options: [
+                    "प्रधानमंत्री",
+                    "राष्ट्रपति",
+                    "लोकसभा अध्यक्ष",
+                    "मुख्य न्यायाधीश अकेले"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "18. न्यायाधीशों की नियुक्ति में 'collegiality' का क्या अर्थ है?",
+                options: [
+                    "न्यायाधीशों का जनता द्वारा चुनाव",
+                    "राजनीतिक दलों की नियुक्ति",
+                    "वरिष्ठ न्यायाधीशों के समूह द्वारा नामों की सिफारिश की व्यवस्था",
+                    "संसद द्वारा प्रत्येक न्यायाधीश का चुनाव"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "19. NCERT के अनुसार न्यायाधीशों की नियुक्ति के प्रश्न में किन पक्षों की महत्वपूर्ण भूमिका बताई गई है?",
+                options: [
+                    "केवल राज्य सरकारों की",
+                    "केवल संसद की",
+                    "न्यायपालिका और Council of Ministers दोनों की",
+                    "केवल निर्वाचन आयोग की"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "20. Supreme Court या High Court के judge को हटाने का आधार क्या हो सकता है?",
+                options: [
+                    "राजनीतिक मतभेद",
+                    "Proven misbehaviour या incapacity",
+                    "सरकार की आलोचना",
+                    "अधिकांश मामलों में असहमति"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "21. Supreme Court या High Court के judge को हटाने के लिए motion को कहाँ विशेष बहुमत से मंजूर होना चाहिए?",
+                options: [
+                    "केवल लोकसभा में",
+                    "केवल राज्यसभा में",
+                    "संसद के दोनों सदनों में",
+                    "सर्वोच्च न्यायालय में"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "22. न्यायाधीश को हटाने की प्रक्रिया कठिन होने का प्रमुख लाभ क्या है?",
+                options: [
+                    "न्यायाधीश राजनीतिक दबाव से सुरक्षित रहते हैं",
+                    "न्यायाधीश संसद से ऊपर हो जाते हैं",
+                    "न्यायाधीश कानून नहीं मानते",
+                    "न्यायपालिका चुनाव करा सकती है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "23. न्यायाधीशों को हटाने की शक्ति मुख्यतः किस संस्था के पास है?",
+                options: [
+                    "कार्यपालिका",
+                    "विधायिका/संसद",
+                    "निर्वाचन आयोग",
+                    "राज्यपाल"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "24. Justice V. Ramaswami के removal proceedings की विशेषता क्या थी?",
+                options: [
+                    "वे सफलतापूर्वक हटाए गए",
+                    "संसद में कोई प्रक्रिया नहीं हुई",
+                    "आवश्यक समर्थन पूरा न होने के कारण उन्हें हटाया नहीं जा सका",
+                    "राष्ट्रपति ने उन्हें सीधे हटा दिया"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "25. भारत में न्यायपालिका की संरचना कैसी है?",
+                options: [
+                    "अलग-अलग संघ और राज्य न्यायपालिका",
+                    "एकीकृत न्यायिक व्यवस्था",
+                    "केवल Supreme Court",
+                    "केवल High Courts"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "26. भारत की न्यायपालिका की संरचना को सामान्यतः किस रूप में दर्शाया जाता है?",
+                options: [
+                    "वृत्ताकार",
+                    "क्षैतिज",
+                    "पिरामिडीय",
+                    "दो समानांतर श्रृंखलाओं में"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "27. भारतीय न्यायपालिका में सबसे ऊपर कौन-सा न्यायालय है?",
+                options: [
+                    "District Court",
+                    "High Court",
+                    "Supreme Court",
+                    "Sessions Court"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "28. Supreme Court के नीचे मुख्यतः कौन-से न्यायालय आते हैं?",
+                options: [
+                    "High Courts",
+                    "केवल District Courts",
+                    "केवल ग्राम न्यायालय",
+                    "संसदीय समितियाँ"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "29. निम्न में से कौन भारतीय न्यायपालिका की एकीकृत व्यवस्था को दर्शाता है?",
+                options: [
+                    "राज्य और केंद्र की अलग-अलग सर्वोच्च न्यायपालिकाएँ",
+                    "Supreme Court के निर्णयों का सभी courts पर binding होना",
+                    "हर राज्य का अलग संविधान",
+                    "High Courts का Supreme Court से स्वतंत्र होना"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "30. Supreme Court के निर्णयों का अन्य न्यायालयों पर क्या प्रभाव होता है?",
+                options: [
+                    "वे केवल सलाह होते हैं",
+                    "वे केवल High Court पर लागू होते हैं",
+                    "वे सभी अन्य courts के लिए binding होते हैं",
+                    "वे केवल संसद पर लागू होते हैं"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "31. High Court की एक प्रमुख शक्ति क्या है?",
+                options: [
+                    "अपने राज्य के अधीनस्थ न्यायालयों पर superintendence और control",
+                    "राष्ट्रपति को हटाना",
+                    "संसद को भंग करना",
+                    "प्रधानमंत्री नियुक्त करना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "32. District Courts मुख्यतः किस प्रकार के मामलों से संबंधित होते हैं?",
+                options: [
+                    "केवल संवैधानिक संशोधन",
+                    "जिले के civil और criminal मामलों तथा appeals",
+                    "केवल राष्ट्रपति के मामले",
+                    "केवल राज्यसभा के मामले"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "33. Supreme Court की Original Jurisdiction का अर्थ क्या है?",
+                options: [
+                    "निचली अदालत से appeal सुनना",
+                    "राष्ट्रपति को सलाह देना",
+                    "कुछ मामलों को सीधे पहली अदालत के रूप में सुनना",
+                    "किसी पुराने निर्णय की समीक्षा करना"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "34. Union और State के बीच संवैधानिक विवाद किस jurisdiction के अंतर्गत Supreme Court में जा सकता है?",
+                options: [
+                    "Original Jurisdiction",
+                    "Advisory Jurisdiction",
+                    "Appellate Jurisdiction",
+                    "Writ Jurisdiction"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "35. दो राज्यों के बीच संवैधानिक विवाद सामान्यतः किस jurisdiction से संबंधित है?",
+                options: [
+                    "Advisory",
+                    "Original",
+                    "Appellate",
+                    "Writ"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "36. Supreme Court की Original Jurisdiction उसे किस रूप में कार्य करने देती है?",
+                options: [
+                    "संघीय विवादों में संवैधानिक umpire के रूप में",
+                    "चुनाव आयोग के रूप में",
+                    "विधायिका के रूप में",
+                    "कार्यपालिका के रूप में"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "37. Writ Jurisdiction का प्रमुख उद्देश्य क्या है?",
+                options: [
+                    "सरकार बनाना",
+                    "मौलिक अधिकारों की रक्षा करना",
+                    "बजट पारित करना",
+                    "न्यायाधीश नियुक्त करना"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "38. मौलिक अधिकारों के उल्लंघन पर व्यक्ति सीधे किस न्यायालय में जा सकता है?",
+                options: [
+                    "District Court",
+                    "High Court ही केवल",
+                    "Supreme Court",
+                    "Tribunal ही केवल"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "39. High Court भी writs जारी कर सकता है। यह किस बात को दर्शाता है?",
+                options: [
+                    "High Court को संवैधानिक अधिकार-सुरक्षा की शक्ति प्राप्त है",
+                    "High Court Supreme Court से ऊपर है",
+                    "High Court संसद चलाता है",
+                    "High Court राष्ट्रपति का चुनाव करता है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "40. निम्न में से कौन-सा Supreme Court द्वारा जारी किया जाने वाला writ है?",
+                options: [
+                    "Habeas Corpus",
+                    "Budget",
+                    "Ordinance",
+                    "Referendum"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "41. Habeas Corpus writ मुख्यतः किससे संबंधित है?",
+                options: [
+                    "अवैध हिरासत से व्यक्ति की स्वतंत्रता की रक्षा",
+                    "सरकारी अधिकारी को अपना कर्तव्य करने का आदेश",
+                    "निचली अदालत का record मंगाना",
+                    "किसी पद पर अधिकार की जाँच"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "42. Mandamus का सामान्य अर्थ क्या है?",
+                options: [
+                    "अवैध हिरासत से मुक्ति",
+                    "लोक अधिकारी को कानूनी कर्तव्य पूरा करने का आदेश",
+                    "निचली अदालत को रोकना",
+                    "किसी पद पर अधिकार की जाँच"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "43. Prohibition writ का उद्देश्य क्या है?",
+                options: [
+                    "निचली अदालत/tribunal को अपने अधिकार क्षेत्र से बाहर जाने से रोकना",
+                    "राष्ट्रपति को हटाना",
+                    "किसी व्यक्ति को गिरफ्तार करना",
+                    "सरकार को कानून बनाने देना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "44. Certiorari का संबंध सामान्यतः किससे है?",
+                options: [
+                    "किसी मामले में निचली अदालत के निर्णय/कार्यवाही को ऊपर मंगाकर जाँच या निरस्त करना",
+                    "नया चुनाव कराना",
+                    "नया कानून बनाना",
+                    "मंत्रिपरिषद बनाना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "45. Quo Warranto का उद्देश्य क्या है?",
+                options: [
+                    "किसी व्यक्ति के सार्वजनिक पद पर अधिकार की वैधता की जाँच करना",
+                    "अवैध हिरासत से मुक्ति देना",
+                    "निचली अदालत को रोकना",
+                    "सरकार को आदेश देना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "46. Supreme Court की Appellate Jurisdiction का अर्थ क्या है?",
+                options: [
+                    "निचली अदालतों के निर्णयों के विरुद्ध appeals सुनना",
+                    "राष्ट्रपति को सलाह देना",
+                    "Union-State disputes सीधे सुनना",
+                    "केवल writ जारी करना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "47. Supreme Court किसका सर्वोच्च appellate court है?",
+                options: [
+                    "भारत का",
+                    "केवल दिल्ली का",
+                    "केवल केंद्र सरकार का",
+                    "केवल High Courts का"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "48. Criminal case में death sentence होने पर appeal कहाँ की जा सकती है?",
+                options: [
+                    "केवल District Court",
+                    "High Court या Supreme Court",
+                    "केवल Parliament",
+                    "केवल President"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "49. Advisory Jurisdiction में Supreme Court से सलाह कौन मांग सकता है?",
+                options: [
+                    "प्रधानमंत्री",
+                    "लोकसभा अध्यक्ष",
+                    "राष्ट्रपति",
+                    "मुख्यमंत्री"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "50. Advisory Jurisdiction के अंतर्गत राष्ट्रपति किस प्रकार के मामले Supreme Court को refer कर सकते हैं?",
+                options: [
+                    "Public importance या Constitution की interpretation से जुड़े मामले",
+                    "केवल criminal cases",
+                    "केवल चुनावी मामलों",
+                    "केवल निजी संपत्ति विवाद"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "51. Advisory jurisdiction में Supreme Court की सलाह के बारे में सही कथन कौन-सा है?",
+                options: [
+                    "Court हमेशा सलाह देने के लिए बाध्य है",
+                    "President हमेशा सलाह मानने के लिए बाध्य है",
+                    "Court सलाह देने के लिए बाध्य नहीं और President भी उसे मानने के लिए बाध्य नहीं",
+                    "सलाह संसद देती है"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "52. Supreme Court की advisory power का एक लाभ क्या है?",
+                options: [
+                    "सरकार महत्वपूर्ण कदम उठाने से पहले कानूनी राय प्राप्त कर सकती है",
+                    "संसद की शक्ति समाप्त हो जाती है",
+                    "न्यायपालिका कानून बनाती है",
+                    "राष्ट्रपति न्यायाधीश बन जाता है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "53. Article 137 किस शक्ति से संबंधित है?",
+                options: [
+                    "Supreme Court द्वारा अपने judgment/order की review power",
+                    "President का election",
+                    "Money Bill",
+                    "High Court की appointment"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "54. Article 144 का मूल संबंध किससे है?",
+                options: [
+                    "सभी civil और judicial authorities का Supreme Court की सहायता में कार्य करना",
+                    "President का election",
+                    "Judges की retirement age",
+                    "PIL"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "55. Judicial Activism का अर्थ सामान्यतः क्या है?",
+                options: [
+                    "न्यायपालिका द्वारा संवैधानिक और सार्वजनिक मुद्दों पर सक्रिय भूमिका निभाना",
+                    "न्यायपालिका का निष्क्रिय रहना",
+                    "संसद का न्यायालय बन जाना",
+                    "कार्यपालिका का कानून बनाना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "56. भारत में Judicial Activism के विस्तार का प्रमुख साधन क्या रहा है?",
+                options: [
+                    "Money Bill",
+                    "Public Interest Litigation",
+                    "No-confidence motion",
+                    "Ordinance"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "57. PIL का पूरा नाम क्या है?",
+                options: [
+                    "Public Interest Litigation",
+                    "Private Indian Law",
+                    "Public Indian Legislature",
+                    "Personal Interest Law"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "58. PIL की विशेषता क्या है?",
+                options: [
+                    "केवल पीड़ित व्यक्ति ही petition कर सकता है",
+                    "जनहित से जुड़े मामले में अन्य व्यक्ति/संगठन भी प्रभावित लोगों की ओर से court जा सकते हैं",
+                    "केवल सरकार petition कर सकती है",
+                    "केवल संसद petition कर सकती है"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "59. भारत में PIL की शुरुआत के संदर्भ में NCERT किस समय को महत्वपूर्ण मानता है?",
+                options: [
+                    "1950",
+                    "1962",
+                    "1979 के आसपास",
+                    "1991"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "60. PIL ने विशेष रूप से किन लोगों को न्याय तक पहुँचने में सहायता की?",
+                options: [
+                    "केवल सरकारी अधिकारियों को",
+                    "गरीब और वंचित वर्गों को",
+                    "केवल सांसदों को",
+                    "केवल न्यायाधीशों को"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "61. Hussainara Khatoon case किससे जुड़ा प्रारंभिक PIL उदाहरण था?",
+                options: [
+                    "Undertrial prisoners के अधिकारों से",
+                    "चुनावी सुधार से",
+                    "पर्यावरण प्रदूषण से",
+                    "भूमि सुधार से"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "62. Sunil Batra v. Delhi Administration case किससे संबंधित प्रारंभिक PIL उदाहरण था?",
+                options: [
+                    "कारागार में कैदियों के साथ व्यवहार और उनके अधिकारों से",
+                    "राष्ट्रपति चुनाव से",
+                    "राज्य पुनर्गठन से",
+                    "कर कानून से"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "63. PIL के माध्यम से किन मुद्दों को न्यायपालिका के सामने लाया गया?",
+                options: [
+                    "पर्यावरण और गरीबों के अधिकार जैसे public interest issues",
+                    "केवल निजी व्यापारिक विवाद",
+                    "केवल संसद की कार्यवाही",
+                    "केवल राष्ट्रपति चुनाव"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "64. Judicial Activism ने न्याय व्यवस्था को किस प्रकार अधिक participatory बनाया?",
+                options: [
+                    "नागरिकों और समूहों को न्यायालय तक पहुँच के अधिक अवसर देकर",
+                    "संसद को समाप्त करके",
+                    "न्यायाधीशों को निर्वाचित करके",
+                    "कार्यपालिका को समाप्त करके"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "65. PIL और Judicial Activism का एक सकारात्मक प्रभाव क्या बताया गया है?",
+                options: [
+                    "Executive accountability में वृद्धि",
+                    "Parliament का अंत",
+                    "Judiciary का चुनाव",
+                    "संविधान का अंत"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "66. Judicial Activism की एक आलोचना क्या है?",
+                options: [
+                    "इससे courts पर मामलों का बोझ बढ़ सकता है",
+                    "इससे courts पूरी तरह समाप्त हो जाते हैं",
+                    "इससे नागरिकों को न्याय नहीं मिलता",
+                    "इससे संविधान समाप्त हो जाता है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "67. Judicial Activism की दूसरी प्रमुख आलोचना क्या है?",
+                options: [
+                    "यह judiciary और executive/legislature के कार्यक्षेत्र की सीमा को धुंधला कर सकता है",
+                    "यह केवल private disputes सुनता है",
+                    "यह courts की शक्ति समाप्त करता है",
+                    "यह संसद को चुनाव कराता है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "68. Judicial Review का अर्थ क्या है?",
+                options: [
+                    "संसद द्वारा न्यायालयों की समीक्षा",
+                    "न्यायालय द्वारा कानून की संवैधानिकता की जाँच",
+                    "राष्ट्रपति द्वारा Parliament की समीक्षा",
+                    "जनता द्वारा judges की समीक्षा"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "69. यदि कोई कानून संविधान के विरुद्ध पाया जाता है, तो Supreme Court क्या कर सकता है?",
+                options: [
+                    "उसे unconstitutional घोषित कर सकता है",
+                    "उसे Parliament को वापस भेजना ही होगा",
+                    "उसे President को सौंपना होगा",
+                    "उसे स्वतः लागू करना होगा"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "70. 'Judicial Review' शब्द संविधान में किस रूप में मौजूद है?",
+                options: [
+                    "एक अलग chapter के रूप में",
+                    "एक स्पष्ट संवैधानिक phrase के रूप में",
+                    "शब्दशः कहीं नहीं, लेकिन इसकी शक्ति विभिन्न संवैधानिक प्रावधानों से निहित है",
+                    "केवल प्रस्तावना में"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "71. Judicial Review के माध्यम से न्यायालय कानून की जाँच किस आधार पर कर सकता है?",
+                options: [
+                    "क्या वह संविधान के अनुरूप है",
+                    "क्या वह लोकप्रिय है",
+                    "क्या वह राजनीतिक दल को पसंद है",
+                    "क्या वह मीडिया में लोकप्रिय है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "72. Judicial Review का संबंध Fundamental Rights से कैसे है?",
+                options: [
+                    "Court ऐसे कानून को असंवैधानिक घोषित कर सकता है जो Fundamental Rights का उल्लंघन करता हो",
+                    "Court Fundamental Rights समाप्त कर सकता है",
+                    "Court केवल संसद की अनुमति से rights बचाता है",
+                    "Court rights पर कोई निर्णय नहीं दे सकता"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "73. Judicial Review federal distribution of powers से किस प्रकार संबंधित हो सकती है?",
+                options: [
+                    "यदि कोई कानून संविधान में निर्धारित Union-State powers का उल्लंघन करे",
+                    "केवल राष्ट्रपति चुनाव में",
+                    "केवल स्थानीय चुनाव में",
+                    "केवल private disputes में"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "74. Judicial Review का प्रयोग State Legislature के कानूनों पर भी हो सकता है?",
+                options: [
+                    "हाँ",
+                    "नहीं",
+                    "केवल राष्ट्रपति की अनुमति से",
+                    "केवल संसद की अनुमति से"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "75. Article 32 का संबंध मुख्यतः किससे है?",
+                options: [
+                    "Fundamental Rights के enforcement के लिए Supreme Court जाने के अधिकार से",
+                    "President के election से",
+                    "Judges की appointment से",
+                    "Money Bills से"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "76. Article 226 के अंतर्गत writs जारी करने की शक्ति किसके पास है?",
+                options: [
+                    "High Courts",
+                    "केवल District Courts",
+                    "केवल Parliament",
+                    "केवल President"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "77. Supreme Court Fundamental Rights की रक्षा मुख्यतः किन दो तरीकों से कर सकता है?",
+                options: [
+                    "Writs जारी करके और असंवैधानिक कानून को strike down करके",
+                    "Election कराकर और budget बनाकर",
+                    "Ordinance जारी करके और कानून बनाकर",
+                    "President नियुक्त करके और Parliament भंग करके"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "78. Judiciary को संविधान का protector और interpreter कहने का कारण क्या है?",
+                options: [
+                    "यह संविधान की व्याख्या करती है और उसके विरुद्ध कानूनों की जाँच कर सकती है",
+                    "यह संविधान लिखती है",
+                    "यह संविधान में संशोधन करती है",
+                    "यह संसद को नियंत्रित करती है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "79. भारत में limited separation of powers का अर्थ क्या है?",
+                options: [
+                    "तीनों organs के कार्यक्षेत्र अलग हैं लेकिन checks and balances भी मौजूद हैं",
+                    "तीनों organs पूरी तरह अलग और असंबंधित हैं",
+                    "केवल judiciary सर्वोच्च है",
+                    "केवल Parliament सर्वोच्च है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "80. भारतीय संविधान में checks and balances का उद्देश्य क्या है?",
+                options: [
+                    "एक organ को असीमित शक्ति प्राप्त होने से रोकना",
+                    "Judiciary को समाप्त करना",
+                    "Parliament को समाप्त करना",
+                    "Executive को कानून से मुक्त करना"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "81. Parliament और Judiciary के बीच प्रमुख विवादों में से एक क्या रहा है?",
+                options: [
+                    "Parliament की संविधान संशोधन शक्ति की सीमा",
+                    "खेल नीति",
+                    "स्कूल शिक्षा",
+                    "जनगणना की प्रक्रिया"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "82. Parliament और Judiciary के बीच शुरुआती विवादों में कौन-सा अधिकार महत्वपूर्ण था?",
+                options: [
+                    "Right to Property",
+                    "Right to Vote",
+                    "Right to Education",
+                    "Right to Information"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "83. Parliament और Judiciary के बीच विवाद का एक प्रमुख प्रश्न क्या था?",
+                options: [
+                    "क्या Parliament Fundamental Rights को abridge कर सकती है",
+                    "क्या Parliament elections समाप्त कर सकती है",
+                    "क्या Judiciary budget बना सकती है",
+                    "क्या President Parliament का सदस्य है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "84. Parliament की संविधान संशोधन शक्ति के संबंध में सबसे महत्वपूर्ण निर्णयों में से एक कौन-सा है?",
+                options: [
+                    "Kesavananda Bharati case",
+                    "Hussainara Khatoon case",
+                    "Sunil Batra case",
+                    "Ramaswami case"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "85. Kesavananda Bharati case का प्रमुख सिद्धांत क्या है?",
+                options: [
+                    "Parliament संविधान में कोई संशोधन नहीं कर सकती",
+                    "Parliament संविधान संशोधित कर सकती है, लेकिन Basic Structure को नष्ट नहीं कर सकती",
+                    "Judiciary संविधान में संशोधन कर सकती है",
+                    "Fundamental Rights कभी भी अस्तित्व में नहीं थे"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "86. Basic Structure Doctrine का अर्थ क्या है?",
+                options: [
+                    "संविधान के कुछ मूलभूत तत्वों को संशोधन द्वारा नष्ट नहीं किया जा सकता",
+                    "संविधान को हर वर्ष बदलना आवश्यक है",
+                    "केवल Parliament संविधान की व्याख्या करती है",
+                    "केवल President संविधान बदल सकता है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "87. Kesavananda Bharati judgment के अनुसार Basic Structure का अंतिम निर्धारण कौन करता है?",
+                options: [
+                    "Election Commission",
+                    "Supreme Court",
+                    "Prime Minister",
+                    "Lok Sabha"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "88. Kesavananda Bharati case में Right to Property को लेकर क्या महत्वपूर्ण बात कही गई?",
+                options: [
+                    "इसे Basic Structure का हिस्सा माना गया",
+                    "इसे Basic Structure का हिस्सा नहीं माना गया",
+                    "इसे समाप्त ही नहीं किया जा सकता",
+                    "इसे केवल President बदल सकता है"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "89. Judiciary और Parliament के बीच संघर्ष किन अन्य विषयों तक भी पहुँचा?",
+                options: [
+                    "Judges की appointment और Parliament की amendment power",
+                    "केवल sports policy",
+                    "केवल foreign policy",
+                    "केवल education policy"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "90. Parliamentary privileges और judicial intervention का प्रश्न किस प्रकार का मुद्दा है?",
+                options: [
+                    "Parliament और Judiciary के बीच संभावित conflict का",
+                    "केवल Executive का",
+                    "केवल Election Commission का",
+                    "केवल local government का"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "91. भारतीय संविधान में प्रत्येक organ के कार्यक्षेत्र के संबंध में कौन-सा कथन सही है?",
+                options: [
+                    "Parliament कानून बनाती है, Executive उन्हें लागू करती है और Judiciary विवादों का निपटारा तथा संवैधानिकता की जाँच करती है",
+                    "Judiciary कानून बनाती है और Parliament न्याय करती है",
+                    "Executive संविधान की अंतिम व्याख्या करती है",
+                    "सभी organs का कोई अलग कार्यक्षेत्र नहीं है"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "92. Judiciary द्वारा executive agencies को directions देना किससे संबंधित हो सकता है?",
+                options: [
+                    "Judicial Activism",
+                    "Direct Democracy",
+                    "Federal Election",
+                    "Money Bill"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "93. NCERT के अनुसार Judicial Activism के कारण किस क्षेत्र में न्यायपालिका अधिक सक्रिय हुई?",
+                options: [
+                    "Executive accountability और public interest issues",
+                    "केवल संसद चुनाव",
+                    "केवल राज्यपाल नियुक्ति",
+                    "केवल बजट निर्माण"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "94. Judiciary की independence का अर्थ क्या नहीं है?",
+                options: [
+                    "न्यायपालिका संविधान के प्रति जवाबदेह रहे",
+                    "न्यायाधीश बिना fear or favour काम करें",
+                    "न्यायपालिका arbitrary तरीके से कार्य करे",
+                    "अन्य organs उसके निर्णयों में अनुचित हस्तक्षेप न करें"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "95. यदि दो राज्यों के बीच संवैधानिक अधिकारों को लेकर विवाद हो, तो कौन-सी jurisdiction सबसे उपयुक्त होगी?",
+                options: [
+                    "Advisory",
+                    "Original",
+                    "Appellate",
+                    "Writ"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "96. यदि किसी व्यक्ति का Fundamental Right violate हुआ है और वह सीधे Supreme Court जाता है, तो कौन-सी jurisdiction लागू होगी?",
+                options: [
+                    "Original",
+                    "Advisory",
+                    "Writ",
+                    "Appellate"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "97. यदि President किसी महत्वपूर्ण constitutional question पर Supreme Court की राय माँगता है, तो कौन-सी jurisdiction लागू होगी?",
+                options: [
+                    "Original",
+                    "Appellate",
+                    "Writ",
+                    "Advisory"
+                ],
+                correct: 3
+            },
+
+            {
+                question: "98. यदि किसी High Court के निर्णय के विरुद्ध Supreme Court में appeal की जाती है, तो कौन-सी jurisdiction लागू होगी?",
+                options: [
+                    "Advisory",
+                    "Original",
+                    "Appellate",
+                    "Writ"
+                ],
+                correct: 2
+            },
+
+            {
+                question: "99. यदि Supreme Court किसी कानून को Constitution के विरुद्ध घोषित कर देता है, तो यह किस शक्ति का उदाहरण है?",
+                options: [
+                    "Judicial Review",
+                    "Advisory Jurisdiction",
+                    "Original Jurisdiction",
+                    "PIL"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "100. पूरे अध्याय के संदर्भ में भारतीय न्यायपालिका को सबसे सही रूप में कैसे समझा जा सकता है?",
+                options: [
+                    "केवल निजी विवादों को सुलझाने वाली संस्था",
+                    "संविधान की रक्षा, अधिकारों की सुरक्षा, कानून की व्याख्या और विवादों के निपटारे में महत्वपूर्ण स्वतंत्र संस्था",
+                    "केवल Parliament की सहायता करने वाली संस्था",
+                    "Executive के अधीन काम करने वाली संस्था"
+                ],
+                correct: 1
+            }
+
+        ];
+
+
+        /* =====================================================
+           LOAD QUESTION
+        ===================================================== */
+
+        function loadQuestion() {
+
+            const q =
+                quizData[current];
+
+
+            /*
+                Reset option styling
+            */
+
+            cards.forEach(card => {
+
+                card.classList.remove(
+                    "active",
+                    "correct",
+                    "wrong"
+                );
+
+                card.style.pointerEvents =
+                    "auto";
+
+            });
+
+
+            /*
+                Clear error
+            */
+
+            errorEl.innerText = "";
+
+            errorEl.classList.remove("show");
+
+
+            /*
+                Show question
+            */
+
+            questionEl.innerText =
+                q.question;
+
+
+            /*
+                Create options
+            */
+
+            cards.forEach((card, i) => {
+
+                card.innerHTML = `
+
+                    <input
+                        type="radio"
+                        name="option"
+                        value="${i}"
+                    >
+
+                    <span>
+                        ${q.options[i]}
+                    </span>
+
+                `;
+
+
+                /*
+                    Option click
+                */
+
+                card.onclick = () => {
+
+                    /*
+                        If already submitted,
+                        don't allow changing
+                    */
+
+                    if (submitted[current]) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Remove error
+                    */
+
+                    errorEl.innerText = "";
+
+                    errorEl.classList.remove(
+                        "show"
+                    );
+
+
+                    /*
+                        Remove active
+                    */
+
+                    cards.forEach(c => {
+
+                        c.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    /*
+                        Select option
+                    */
+
+                    const radio =
+                        card.querySelector("input");
+
+                    radio.checked = true;
+
+
+                    /*
+                        Active style
+                    */
+
+                    card.classList.add(
+                        "active"
+                    );
+
+
+                    /*
+                        Save answer
+                    */
+
+                    userAnswers[current] =
+                        i;
+
+                };
+
+            });
+
+
+            /*
+                Restore previously selected answer
+            */
+
+            const savedAnswer =
+                userAnswers[current];
+
+
+            if (savedAnswer !== null) {
+
+                const selectedCard =
+                    cards[savedAnswer];
+
+                const selectedRadio =
+                    selectedCard.querySelector(
+                        "input"
+                    );
+
+
+                selectedRadio.checked = true;
+
+                selectedCard.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            /*
+                Restore submitted state
+            */
+
+            if (submitted[current]) {
+
+                showResult();
+
+            }
+
+
+            /*
+                Progress
+            */
+
+            progressBar.style.width =
+                `${((current + 1) / quizData.length) * 100}%`;
+
+
+            /*
+                Previous button
+            */
+
+            if (current > 0) {
+
+                prevBtn.style.display =
+                    "inline-block";
+
+            } else {
+
+                prevBtn.style.display =
+                    "none";
+
+            }
+
+
+            /*
+                Submit / Next buttons
+            */
+
+            if (submitted[current]) {
+
+                submitBtn.style.display =
+                    "none";
+
+                nextBtn.style.display =
+                    "inline-block";
+
+            } else {
+
+                submitBtn.style.display =
+                    "inline-block";
+
+                submitBtn.disabled =
+                    false;
+
+                nextBtn.style.display =
+                    "none";
+
+            }
+
+
+            /*
+                Last question
+            */
+
+            if (
+                current ===
+                quizData.length - 1
+            ) {
+
+                nextBtn.innerText =
+                    "Finish Quiz →";
+
+            } else {
+
+                nextBtn.innerText =
+                    "Next Question →";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           GET SELECTED ANSWER
+        ===================================================== */
+
+        function getAnswer() {
+
+            const selected =
+                document.querySelector(
+                    "input[name='option']:checked"
+                );
+
+
+            return selected
+                ? parseInt(selected.value)
+                : null;
+
+        }
+
+
+        /* =====================================================
+           SHOW CORRECT / WRONG
+        ===================================================== */
+
+        function showResult() {
+
+            const answer =
+                userAnswers[current];
+
+            const correct =
+                quizData[current].correct;
+
+
+            /*
+                Disable options
+            */
+
+            cards.forEach((card, i) => {
+
+                card.style.pointerEvents =
+                    "none";
+
+
+                /*
+                    Correct option
+                */
+
+                if (i === correct) {
+
+                    card.classList.add(
+                        "correct"
+                    );
+
+                }
+
+
+                /*
+                    Wrong selected option
+                */
+
+                if (
+                    i === answer &&
+                    answer !== correct
+                ) {
+
+                    card.classList.add(
+                        "wrong"
+                    );
+
+                }
+
+            });
+
+        }
+
+
+        /* =====================================================
+           SUBMIT ANSWER
+        ===================================================== */
+
+        submitBtn.onclick = () => {
+
+            const answer =
+                getAnswer();
+
+
+            /*
+                No answer
+            */
+
+            if (answer === null) {
+
+                errorEl.innerText =
+                    "⚠ Please select an option before submitting.";
+
+                errorEl.classList.add(
+                    "show"
+                );
+
+                return;
+
+            }
+
+
+            /*
+                Save answer
+            */
+
+            userAnswers[current] =
+                answer;
+
+
+            /*
+                Mark submitted
+            */
+
+            submitted[current] =
+                true;
+
+
+            /*
+                Remove error
+            */
+
+            errorEl.innerText = "";
+
+            errorEl.classList.remove(
+                "show"
+            );
+
+
+            /*
+                Show result
+            */
+
+            showResult();
+
+
+            /*
+                Hide Submit
+            */
+
+            submitBtn.style.display =
+                "none";
+
+
+            /*
+                Show Next
+            */
+
+            nextBtn.style.display =
+                "inline-block";
+
+
+            /*
+                Last question
+            */
+
+            if (
+                current ===
+                quizData.length - 1
+            ) {
+
+                nextBtn.innerText =
+                    "Finish Quiz →";
+
+            } else {
+
+                nextBtn.innerText =
+                    "Next Question →";
+
+            }
+
+        };
+
+
+        /* =====================================================
+           NEXT QUESTION
+        ===================================================== */
+
+        nextBtn.onclick = () => {
+
+            /*
+                Last question
+            */
+
+            if (
+                current ===
+                quizData.length - 1
+            ) {
+
+                showFinalResult();
+
+                return;
+
+            }
+
+
+            /*
+                Move forward
+            */
+
+            current++;
+
+            loadQuestion();
+
+        };
+
+
+        /* =====================================================
+           PREVIOUS QUESTION
+        ===================================================== */
+
+        prevBtn.onclick = () => {
+
+            if (current <= 0) {
+
+                return;
+
+            }
+
+
+            current--;
+
+            loadQuestion();
+
+        };
+
+
+        /* =====================================================
+           CALCULATE SCORE
+        ===================================================== */
+
+        function calculateScore() {
+
+            let totalScore = 0;
+
+
+            userAnswers.forEach(
+                (answer, index) => {
+
+                    if (
+                        answer !== null &&
+                        answer ===
+                        quizData[index].correct
+                    ) {
+
+                        totalScore++;
+
+                    }
+
+                }
+            );
+
+
+            return totalScore;
+
+        }
+
+
+        /* =====================================================
+           FINAL RESULT
+        ===================================================== */
+
+        function showFinalResult() {
+
+            const finalScore =
+                calculateScore();
+
+
+            progressBar.style.width =
+                "100%";
+
+
+            document.querySelector(
+                ".quiz-card"
+            ).innerHTML = `
+
+                <div class="result-box">
+
+                    <h2>
+                        🎉 Quiz Completed!
+                    </h2>
+
+
+                    <p class="score-text">
+                        Your Score
+                    </p>
+
+
+                    <div class="score-circle">
+
+                        ${finalScore}
+                        /
+                        ${quizData.length}
+
+                    </div>
+
+
+                    <p class="score-message">
+
+                        ${finalScore >= 95
+                    ? "Outstanding Performance 🚀"
+                    : finalScore >= 75
+                        ? "Great Job 🌟"
+                        : finalScore >= 60
+                            ? "Good Effort 👍"
+                            : "Keep Practicing 💪"
+                }
+
+                    </p>
+
+
+                    <button
+                        onclick="location.reload()"
+                        id="play-again"
+                    >
+                        Play Again
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =====================================================
+           START QUIZ
+        ===================================================== */
+
+        loadQuestion();
+
+    </script>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        CBSE Class 11 Political Science Quiz
+        |
+        Based on NCERT Syllabus
+        |
+        &copy; 2026 PSES Adda
+
+    </footer>
+
+</body>
+
+</html>

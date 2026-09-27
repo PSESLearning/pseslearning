@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSES Learning - Class 11 Chapter 6</title>
+    <link rel="icon" type="images/x-icon" href="../../../images/image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/pages_style.css">
+    <style>
+        body.chapter-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(98, 172, 255, 0.3), transparent 28%),
+                radial-gradient(circle at right 20%, rgba(255, 86, 86, 0.16), transparent 22%),
+                linear-gradient(180deg, #eef6ff 0%, #f4f6fb 48%, #edf1ff 100%);
+            color: #0f1b35;
+            padding-bottom: 28px;
+        }
+
+        .chapter-page header,
+        .chapter-page footer {
+            width: min(94%, 1180px);
+            background:
+                linear-gradient(140deg, rgba(24, 92, 191, 0.95), rgba(74, 163, 255, 0.88)),
+                linear-gradient(90deg, #1f6fe5, #4aa3ff);
+        }
+
+        .chapter-topline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .chapter-shell {
+            width: min(94%, 1180px);
+            margin: 24px auto 0;
+        }
+
+        .chapter-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 42px;
+            border-radius: 34px;
+            text-align: left;
+            background:
+                linear-gradient(145deg, rgba(10, 24, 58, 0.94), rgba(26, 64, 146, 0.9)),
+                linear-gradient(135deg, #08162d, #1d4ed8);
+            color: #ffffff;
+            box-shadow: 0 28px 80px rgba(16, 34, 79, 0.18);
+        }
+
+        .chapter-hero::before,
+        .chapter-hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .chapter-hero::before {
+            width: 240px;
+            height: 240px;
+            top: -70px;
+            right: 8%;
+        }
+
+        .chapter-hero::after {
+            width: 180px;
+            height: 180px;
+            bottom: -70px;
+            right: -30px;
+        }
+
+        .chapter-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.8fr);
+            gap: 26px;
+            align-items: center;
+        }
+
+        .chapter-page h1 {
+            width: auto;
+            margin: 18px 0 16px;
+            color: #ffffff;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.3rem, 4.6vw, 4.3rem);
+            line-height: 1.02;
+            text-align: left;
+        }
+
+        .chapter-subtitle {
+            max-width: 720px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.02rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .chapter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .chapter-tags span,
+        .overview-card li {
+            border-radius: 999px;
+        }
+
+        .chapter-tags span {
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .overview-card {
+            padding: 26px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+            text-align: left;
+        }
+
+        .overview-card h2 {
+            margin: 0 0 12px;
+            font-size: 1.4rem;
+        }
+
+        .overview-card p {
+            margin: 0 0 18px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.76);
+        }
+
+        .overview-card ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .overview-card li {
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-weight: 700;
+        }
+
+        .resources-panel {
+            margin-top: 22px;
+            padding: 34px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(170, 195, 255, 0.32);
+            box-shadow: 0 20px 60px rgba(31, 58, 119, 0.1);
+            backdrop-filter: blur(16px);
+        }
+
+        .panel-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .panel-head p {
+            margin: 0;
+            color: #52607f;
+            line-height: 1.7;
+        }
+
+        .panel-head strong {
+            display: inline-flex;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #e6efff, #ffffff);
+            color: #1c4fd7;
+            font-size: 0.86rem;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .resource-card,
+        .resource-button {
+            width: 100%;
+            min-height: 170px;
+            padding: 22px;
+            border: none;
+            border-radius: 26px;
+            text-align: left;
+            cursor: pointer;
+            color: #ffffff;
+            background: linear-gradient(180deg, #ff5858 0%, #dd1212 100%);
+            box-shadow: 0 18px 34px rgba(214, 18, 18, 0.2);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        .resource-card {
+            display: flex;
+        }
+
+        .resource-card:hover,
+        .resource-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 40px rgba(214, 18, 18, 0.24);
+            filter: brightness(1.02);
+        }
+
+        .resource-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 14px;
+        }
+
+        .resource-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.16);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .resource-content h3 {
+            margin: 0;
+            font-size: 1.24rem;
+            line-height: 1.25;
+        }
+
+        .resource-content p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+
+        .resource-foot {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .resource-pill {
+            display: inline-flex;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .resource-arrow {
+            font-size: 1.1rem;
+        }
+
+        .resource-button {
+            font-family: inherit;
+        }
+
+        .resource-button[disabled] {
+            cursor: not-allowed;
+            opacity: 0.82;
+        }
+
+        .back {
+            background: linear-gradient(135deg, #0f47b6, #082760);
+            box-shadow: 0 16px 30px rgba(8, 39, 96, 0.24);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        @media (max-width: 980px) {
+
+            .chapter-grid,
+            .resource-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .chapter-grid> :first-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 720px) {
+
+            .chapter-hero,
+            .resources-panel {
+                padding: 24px;
+            }
+
+            .panel-head,
+            .chapter-page h1,
+            .chapter-subtitle {
+                text-align: left;
+            }
+
+            .resource-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-page h1 {
+                font-size: 2.2rem;
+            }
+
+            .resource-card,
+            .resource-button {
+                min-height: 154px;
+            }
+        }
+    </style>
+</head>
+
+<body class="chapter-page">
+
+    <header>
+        <span class="chapter-topline">Class 11th Learning</span>
+    </header>
+
+    <main class="chapter-shell">
+        <section class="chapter-hero">
+            <div class="chapter-grid">
+                <div>
+                    <span class="chapter-topline">Chapter Resource Page</span>
+                    <h1>Chapter 6 ( न्यायपालिका )</h1>
+                    <p class="chapter-subtitle">Open the most useful resources for revision, question practice, and
+                        quick chapter support from one cleaner chapter page.</p>
+                    <div class="chapter-tags">
+                        <span>Exam Revision</span>
+                        <span>Quick Access</span>
+                        <span>Political Science</span>
+                    </div>
+                </div>
+
+                <aside class="overview-card">
+                    <h2>Chapter Focus</h2>
+                    <p>This layout keeps your most-used chapter material visible first, so study flow feels faster and
+                        less distracting.</p>
+                    <ul>
+                        <li>Clean card-based chapter resources</li>
+                        <li>Ready for PDFs, quizzes, and notes</li>
+                        <li>Easy to expand anytime</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="resources-panel">
+            <div class="panel-head">
+                <div>
+                    <strong>Chapter Resources</strong>
+                    <p>Choose a resource below to start practicing, revising, or continuing your chapter work.</p>
+                </div>
+            </div>
+
+            <div class="resource-grid">
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">MC</span>
+                        <h3>MCQs</h3>
+                        <p>Objective practice for fast revision and chapter recall.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">SQ</span>
+                        <h3>Short Questions</h3>
+                        <p>Concise answers for exam-style written preparation.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">LQ</span>
+                        <h3>Long Questions</h3>
+                        <p>Reserved for detailed board answers and structured writing support.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">MW</span>
+                        <h3>Map Work</h3>
+                        <p>Space for map-based political and global context practice.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">CT</span>
+                        <h3>Cartoon</h3>
+                        <p>Add political cartoon explanation and interpretation here later.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">NT</span>
+                        <h3>Notes</h3>
+                        <p>A quick chapter wrap-up block for one-look revision.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="resource-button" type="button" disabled>
+                    <div class="resource-content">
+                        <span class="resource-icon">VD</span>
+                        <h3>Videos</h3>
+                        <p>Video explanations can be connected here for visual learning.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Coming Soon</span>
+                            <span class="resource-arrow">Soon</span>
+                        </div>
+                    </div>
+                </button>
+                <a href="../../../comment.html" class="resource-card">
+                    <div class="resource-content">
+                        <span class="resource-icon">FY</span>
+                        <h3>For Your Question</h3>
+                        <p>Keep this area for custom doubt support or direct student questions.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Available</span>
+                            <span class="resource-arrow">Open</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="resource-card" href="../../../materials/class-11/Book-1/quiz/ch6.html">
+                    <div class="resource-content">
+                        <span class="resource-icon">QZ</span>
+                        <h3>Let's Play Quiz</h3>
+                        <p>Jump into quiz mode for a more active revision session.</p>
+                        <div class="resource-foot">
+                            <span class="resource-pill">Live</span>
+                            <span class="resource-arrow">Play</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <button class="back"><a href="../../class-11th.html">Back</a></button>
+
+    <footer>
+        <p>&copy; 2026 PSES Learning | Made for Students</p>
+    </footer>
+
+</body>
+
+</html>
