@@ -119,7 +119,7 @@ window.addEventListener("load", () => {
 
         setTimeout(() => {
             loader.remove();
-        }, 500);
+        }, 300);
     }
 
     const year = document.getElementById("year");
