@@ -139,11 +139,6 @@
         let activeFilter = "all";
         let commentsVisible = true;
 
-        function syncPageMode() {
-            const commentsOnly = window.location.hash === "#commentsBoard";
-            document.body.classList.toggle("comments-only", commentsOnly);
-        }
-
         function getComments() {
             return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         }
@@ -279,7 +274,7 @@
         });
 
         demoFillBtn.addEventListener("click", () => {
-            studentName.value = "Anushka";
+            studentName.value = "Riya";
             chapterSelect.value = "Class 12 - Book 1";
             studentComment.value = "If videos for the first chapter of this book are also available, revision will become even easier.";
             setMessage("Sample data has been filled in. Now you can press 'Submit'.", "success");
