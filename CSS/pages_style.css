@@ -38,6 +38,89 @@ a {
     color: white;
 }
 
+.resource-head {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* =========================================
+   WHATSAPP SHARE
+========================================= */
+
+.share-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 11px 14px;
+
+    border: 1px solid rgba(211, 37, 37, 0.449);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Share icon */
+
+.share-symbol {
+    width: 28px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #25d366;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .menu-share-item {
+        margin: 7px 10px;
+    }
+
+    .menu-share-item button {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .share-symbol {
+        width: 27px;
+        height: 27px;
+        font-size: 15px;
+    }
+
+}
+
 .back {
     display: inline-flex;
     align-items: center;
