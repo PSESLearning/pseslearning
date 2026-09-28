@@ -510,15 +510,29 @@ input[type="radio"] {
 #prev {
     display: none;
 
-    background: #f9cbe7;
+    background: #ffd5ef;
     color: #173b5f;
 
-    border: 1px solid #e8d5e2;
+    border: 1px solid #e8bfd7;
+
+    box-shadow: 0 3px 8px rgba(170, 100, 140, 0.08);
+
+    font-weight: 700;
+
+    transition: all 0.2s ease;
 }
 
 #prev:hover {
-    background: #f3e8f9;
-    transform: translateY(-1px);
+    background: #fbc5e6;
+    border-color: #dfadcb;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 14px rgba(170, 100, 140, 0.13);
+}
+
+#prev:active {
+    transform: translateY(0);
 }
 
 
@@ -614,7 +628,7 @@ footer {
 
     header {
         padding: 12px;
-        border-radius: 20px;
+        border-radius: 18px;
     }
 
     header img {
