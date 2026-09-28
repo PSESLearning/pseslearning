@@ -1,303 +1,576 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PSES Learning - Comments</title>
+
+    <meta name="description" content="Share your questions, suggestions and feedback with PSES Learning.">
+
     <link rel="icon" type="image/png" href="images/image.png">
+
+    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="CSS/comment_style.css">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Comment CSS -->
+
+    <link rel="stylesheet" href="CSS/comment_style.css">
+
 </head>
 
+
 <body>
+
+
+    <!-- =====================================================
+         PAGE WRAPPER
+         ===================================================== -->
+
     <main class="page-shell">
-        <section class="hero">
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="hero-section">
+
+
+            <!-- Decorative shapes -->
+
+            <div class="hero-decoration hero-decoration-one"></div>
+
+            <div class="hero-decoration hero-decoration-two"></div>
+
+
             <div class="hero-content">
-                <div>
-                    <span class="kicker">Comments</span>
-                    <h1>PSES Learning Comments</h1>
+
+
+                <!-- LEFT -->
+
+                <div class="hero-text">
+
+
+                    <div class="hero-badge">
+
+                        <span class="badge-dot"></span>
+
+                        PSES Learning Community
+
+                    </div>
+
+
+                    <h1>
+
+                        Comments & Feedback
+
+                    </h1>
+
+
+                    <p>
+
+                        Have a question, suggestion or feedback?
+                        Share it with the PSES Learning community.
+
+                    </p>
+
+
+                    <div class="hero-features">
+
+
+                        <div class="hero-feature">
+
+                            <span class="feature-icon">
+                                ✓
+                            </span>
+
+                            <span>
+                                Ask Questions
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-feature">
+
+                            <span class="feature-icon">
+                                ✓
+                            </span>
+
+                            <span>
+                                Give Feedback
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-feature">
+
+                            <span class="feature-icon">
+                                ✓
+                            </span>
+
+                            <span>
+                                Share Suggestions
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
                 </div>
 
-                <aside class="hero-card">
-                    <h2>Important</h2>
-                    <ul>
-                        <li>After submitting, comments will appear below</li>
-                    </ul>
-                </aside>
+
+                <!-- RIGHT HERO CARD -->
+
+                <div class="hero-info-card">
+
+
+                    <div class="info-card-icon">
+                        💬
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-small">
+                            COMMUNITY
+                        </span>
+
+                        <h2>
+                            Learn together
+                        </h2>
+
+                        <p>
+                            Your questions and suggestions
+                            can help other students too.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
             </div>
+
         </section>
 
-        <section class="content-grid">
-            <div class="panel">
-                <span class="section-label">Form</span>
-                <h2>Write your question</h2>
-                <p class="panel-intro">Enter your name and question. You can also select a chapter if you wish. After that, the comment will appear in the list below.</p>
+
+
+        <!-- =================================================
+             MAIN GRID
+             ================================================= -->
+
+        <section class="main-grid">
+
+
+            <!-- =================================================
+                 COMMENT FORM
+                 ================================================= -->
+
+            <section class="glass-card form-card">
+
+
+                <div class="card-heading">
+
+
+                    <div>
+
+                        <span class="section-tag">
+                            SHARE
+                        </span>
+
+                        <h2>
+                            Write your comment
+                        </h2>
+
+                        <p>
+                            Ask a question, suggest an improvement
+                            or simply share your feedback.
+                        </p>
+
+                    </div>
+
+
+                    <div class="heading-symbol">
+                        ✎
+                    </div>
+
+
+                </div>
+
+
 
                 <form id="commentForm">
-                    <div class="field-grid">
-                        <div class="field">
-                            <label for="studentName">Your Name *</label>
-                            <input type="text" id="studentName" placeholder="Such as: Riya">
+
+
+                    <!-- NAME + BOOK -->
+
+                    <div class="form-row">
+
+
+                        <div class="input-group">
+
+                            <label for="studentName">
+                                Your Name
+                            </label>
+
+                            <input type="text" id="studentName" maxlength="50" autocomplete="name"
+                                placeholder="Enter your name" required>
+
                         </div>
 
-                        <div class="field">
-                            <label for="chapterSelect">Select Book (optional)</label>
+
+                        <div class="input-group">
+
+                            <label for="chapterSelect">
+                                Select Book
+                            </label>
+
                             <select id="chapterSelect">
-                                <option value="">No Book Selected</option>
-                                <option value="Class 12 - Book 1">Class 12 - Book 1</option>
-                                <option value="Class 12 - Book 2">Class 12 - Book 2</option>
-                                <option value="Class 11 - Book 1">Class 11 - Book 1</option>
-                                <option value="Class 11 - Book 2">Class 11 - Book 2</option>
+
+                                <option value="">
+                                    General Comment
+                                </option>
+
+                                <option value="Class 12 - Book 1">
+                                    Class 12 - Book 1
+                                </option>
+
+                                <option value="Class 12 - Book 2">
+                                    Class 12 - Book 2
+                                </option>
+
+                                <option value="Class 11 - Book 1">
+                                    Class 11 - Book 1
+                                </option>
+
+                                <option value="Class 11 - Book 2">
+                                    Class 11 - Book 2
+                                </option>
+
                             </select>
+
                         </div>
+
+
                     </div>
 
-                    <div class="field">
-                        <label for="studentComment">Your Question / Comment *</label>
-                        <textarea id="studentComment"
-                            placeholder="Example: Ma'am, add videos of this book as well."></textarea>
+
+
+                    <!-- COMMENT -->
+
+                    <div class="input-group comment-input-group">
+
+                        <div class="label-line">
+
+                            <label for="studentComment">
+                                Your Question / Comment
+                            </label>
+
+                            <span id="characterCount">
+                                0/1000
+                            </span>
+
+                        </div>
+
+
+                        <textarea id="studentComment" maxlength="1000"
+                            placeholder="Write your question, suggestion or feedback here..." required></textarea>
+
+
                     </div>
 
-                    <div class="button-row">
-                        <button type="submit" class="btn btn-primary">Send Comment</button>
-                        <button type="button" class="btn btn-secondary" id="demoFill">Fill Sample</button>
-                        <button type="button" class="btn btn-secondary" id="hideComments">Hide comments</button>
-                        <button type="button" class="btn btn-info" id="showComments">Show comments</button>
-                        <button type="button" class="btn btn-danger" id="clearForm">Clear Form</button>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="action-row">
+
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+
+                            <span class="button-icon">
+                                ↗
+                            </span>
+
+                            <span id="submitText">
+                                Send Comment
+                            </span>
+
+                        </button>
+
+
+                        <button type="button" class="btn btn-soft" id="demoFill">
+                            Fill Sample
+                        </button>
+
+
+                        <button type="button" class="btn btn-soft" id="clearForm">
+                            Clear Form
+                        </button>
+
+
                     </div>
+
+
+                    <!-- STATUS -->
 
                     <div id="message" class="status-message" aria-live="polite"></div>
+
+
                 </form>
-            </div>
 
-            <div class="panel">
-                <span class="section-label only">Comments</span>
-                <span class="section-label">Live Preview</span>
-                <h2>Saved comments</h2>
-                <p class="panel-intro">The comments are provided here. If a book is selected, you can use the filter to view the comments for that specific book separately.</p>
 
-                <div class="summary-strip">
-                    <div class="summary-card">
-                        <strong id="totalComments">0</strong>
-                        <span>Total comments</span>
+            </section>
+
+
+
+            <!-- =================================================
+                 COMMENTS
+                 ================================================= -->
+
+            <section class="glass-card comments-card">
+
+
+                <div class="card-heading comments-heading">
+
+
+                    <div>
+
+                        <span class="section-tag">
+                            COMMUNITY
+                        </span>
+
+                        <h2>
+                            Student comments
+                        </h2>
+
+                        <p>
+                            See questions and suggestions
+                            shared by other learners.
+                        </p>
+
                     </div>
-                    <div class="summary-card" style="display: none;">
-                        <span id="selectedChapterLabel">Selected chapter</span>
+
+
+                    <div class="live-indicator">
+
+                        <span class="live-dot"></span>
+
+                        Live
+
                     </div>
-                    <div class="summary-card">
-                        <strong id="latestEntry">-</strong>
-                        <span>Latest by</span>
-                    </div>
+
+
                 </div>
 
-                <div class="filter-row" id="filterRow">
-                    <button type="button" class="filter-chip active" data-filter="all">All Comments</button>
-                    <button type="button" class="filter-chip" data-filter="Class 12 - Book 1">Class 12 - B1</button>
-                    <button type="button" class="filter-chip" data-filter="Class 12 - Book 2">Class 12 - B2</button>
-                    <button type="button" class="filter-chip" data-filter="Class 11 - Book 1">Class 11 - B1</button>
-                    <button type="button" class="filter-chip" data-filter="Class 11 - Book 2">Class 11 - B2</button>
+
+
+                <!-- =================================================
+                     STAT CARDS
+                     ================================================= -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-box">
+
+                        <span class="stat-number" id="totalComments">
+                            0
+                        </span>
+
+                        <span class="stat-label">
+                            Total comments
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <span class="stat-number stat-text" id="selectedChapterLabel">
+                            All Comments
+                        </span>
+
+                        <span class="stat-label">
+                            Current filter
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <span class="stat-number stat-text" id="latestEntry">
+                            -
+                        </span>
+
+                        <span class="stat-label">
+                            Latest by
+                        </span>
+
+                    </div>
+
+
                 </div>
 
-                <div class="comments-board" id="commentsBoard">
+
+
+                <!-- =================================================
+                     FILTERS
+                     ================================================= -->
+
+                <div class="filter-section">
+
+
+                    <div class="filter-heading">
+
+                        <span>
+                            Filter comments
+                        </span>
+
+                        <button type="button" id="showComments" class="text-button">
+                            Show all
+                        </button>
+
+                    </div>
+
+
+                    <div class="filter-row" id="filterRow">
+
+
+                        <button type="button" class="filter-chip active" data-filter="all">
+                            All Comments
+                        </button>
+
+
+                        <button type="button" class="filter-chip" data-filter="Class 12 - Book 1">
+                            Class 12 - B1
+                        </button>
+
+
+                        <button type="button" class="filter-chip" data-filter="Class 12 - Book 2">
+                            Class 12 - B2
+                        </button>
+
+
+                        <button type="button" class="filter-chip" data-filter="Class 11 - Book 1">
+                            Class 11 - B1
+                        </button>
+
+
+                        <button type="button" class="filter-chip" data-filter="Class 11 - Book 2">
+                            Class 11 - B2
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     COMMENT FEED
+                     ================================================= -->
+
+                <div class="comments-board">
+
+
                     <div class="comments-toolbar">
-                        <strong>Comment feed</strong>
-                        <span id="listStatus">Showing 0 comments</span>
+
+
+                        <div class="toolbar-title">
+
+                            <span class="toolbar-dot"></span>
+
+                            Comment feed
+
+                        </div>
+
+
+                        <span id="listStatus">
+                            Showing 0 comments
+                        </span>
+
+
                     </div>
-                    <div id="commentsContainer" class="comments-stack" tabindex="0"></div>
+
+
+                    <div id="commentsContainer" class="comments-stack"></div>
+
+
                 </div>
-            </div>
+
+
+
+                <!-- HIDE COMMENTS -->
+
+                <button type="button" id="hideComments" class="hide-comments-btn">
+                    Hide comments
+                </button>
+
+
+            </section>
+
+
         </section>
 
-        <a href="index.html" class="back-link">← Back to Homepage</a>
+
+
+        <!-- =================================================
+             FOOTER / BACK
+             ================================================= -->
+
+        <div class="bottom-area">
+
+
+            <a href="index.html" class="back-link">
+
+                <span>
+                    ←
+                </span>
+
+                Back to Homepage
+
+            </a>
+
+
+            <span class="bottom-note">
+                PSES Learning • Learn. Practice. Improve.
+            </span>
+
+
+        </div>
+
+
     </main>
 
-    <script>
-        const STORAGE_KEY = "psesAddaCommentsDemo";
 
-        const commentForm = document.getElementById("commentForm");
-        const studentName = document.getElementById("studentName");
-        const chapterSelect = document.getElementById("chapterSelect");
-        const studentComment = document.getElementById("studentComment");
-        const message = document.getElementById("message");
-        const commentsContainer = document.getElementById("commentsContainer");
-        const hideCommentsBtn = document.getElementById("hideComments");
-        const showCommentsBtn = document.getElementById("showComments");
-        const clearFormBtn = document.getElementById("clearForm");
-        const clearCommentsBtn = document.getElementById("clearComments");
-        const demoFillBtn = document.getElementById("demoFill");
-        const filterRow = document.getElementById("filterRow");
-        const totalCommentsEl = document.getElementById("totalComments");
-        const selectedChapterLabelEl = document.getElementById("selectedChapterLabel");
-        const latestEntryEl = document.getElementById("latestEntry");
-        const listStatusEl = document.getElementById("listStatus");
 
-        let activeFilter = "all";
-        let commentsVisible = true;
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
 
-        function getComments() {
-            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        }
+    <script type="module" src="JS/comment.js"></script>
 
-        function saveComments(comments) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
-        }
 
-        function setMessage(text, type) {
-            message.textContent = text;
-            message.className = "status-message " + type;
-        }
-
-        function formatTime(value) {
-            return new Date(value).toLocaleString("en-IN", {
-                dateStyle: "medium",
-                timeStyle: "short"
-            });
-        }
-
-        function getFilteredComments(comments) {
-            if (activeFilter === "all") {
-                return comments;
-            }
-
-            return comments.filter((item) => item.chapter === activeFilter);
-        }
-
-        function escapeHTML(value) {
-            const wrapper = document.createElement("div");
-            wrapper.textContent = value;
-            return wrapper.innerHTML;
-        }
-
-        function updateSummary(comments) {
-            const filteredComments = getFilteredComments(comments);
-            const latestComment = comments[comments.length - 1];
-
-            totalCommentsEl.textContent = comments.length;
-            selectedChapterLabelEl.textContent = activeFilter === "all" ? "All comments" : activeFilter;
-            latestEntryEl.textContent = latestComment ? latestComment.name : "-";
-            listStatusEl.textContent = `Showing ${filteredComments.length} of ${comments.length} comments`;
-        }
-
-        function renderComments() {
-            const comments = getComments();
-            const filteredComments = getFilteredComments(comments);
-
-            commentsContainer.innerHTML = "";
-            updateSummary(comments);
-
-            if (!commentsVisible) {
-                commentsContainer.innerHTML = '<div class="empty-state">Comments are currently hidden. Click "Show comments" to view them.</div>';
-                return;
-            }
-
-            if (filteredComments.length === 0) {
-                commentsContainer.innerHTML = '<div class="empty-state">There are no comments for this filter.</div>';
-                return;
-            }
-
-            filteredComments
-                .slice()
-                .reverse()
-                .forEach((item) => {
-                    const commentCard = document.createElement("article");
-                    commentCard.className = "comment-card";
-
-                    commentCard.innerHTML = `
-                        <div class="comment-meta">
-                            <div>
-                                <div class="comment-name">${escapeHTML(item.name)}</div>
-                                <div class="comment-time">${formatTime(item.createdAt)}</div>
-                            </div>
-                            <span class="comment-chapter">${escapeHTML(item.chapter || "General Comment")}</span>
-                        </div>
-                        <p class="comment-text">${escapeHTML(item.comment)}</p>
-                    `;
-
-                    commentsContainer.appendChild(commentCard);
-                });
-        }
-
-        commentForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const name = studentName.value.trim();
-            const chapter = chapterSelect.value.trim();
-            const comment = studentComment.value.trim();
-
-            if (!name || !comment) {
-                setMessage("Please fill in your name and comment.", "error");
-                return;
-            }
-
-            const comments = getComments();
-
-            comments.push({
-                name,
-                chapter: chapter || "General Comment",
-                comment,
-                createdAt: Date.now()
-            });
-
-            saveComments(comments);
-            setMessage("Your comment has been saved and is now visible below.", "success");
-            commentForm.reset();
-            commentsVisible = true;
-            renderComments();
-        });
-
-        hideCommentsBtn.addEventListener("click", () => {
-            commentsVisible = false;
-            setMessage("Comments are currently hidden.", "success");
-            renderComments();
-        });
-
-        showCommentsBtn.addEventListener("click", () => {
-            commentsVisible = true;
-            setMessage("Comments are now visible.", "success");
-            renderComments();
-        });
-
-        clearFormBtn.addEventListener("click", () => {
-            commentForm.reset();
-            setMessage("The form has been cleared.", "success");
-        });
-
-        clearCommentsBtn.addEventListener("click", () => {
-            localStorage.removeItem(STORAGE_KEY);
-            setMessage("All saved comments have been deleted.", "success");
-            renderComments();
-        });
-
-        demoFillBtn.addEventListener("click", () => {
-            studentName.value = "Riya";
-            chapterSelect.value = "Class 12 - Book 1";
-            studentComment.value = "If videos for the first chapter of this book are also available, revision will become even easier.";
-            setMessage("Sample data has been filled in. Now you can press 'Submit'.", "success");
-        });
-
-        filterRow.querySelectorAll(".filter-chip").forEach((button) => {
-            button.addEventListener("click", () => {
-                activeFilter = button.dataset.filter;
-
-                filterRow.querySelectorAll(".filter-chip").forEach((chip) => {
-                    chip.classList.remove("active");
-                });
-
-                button.classList.add("active");
-                renderComments();
-            });
-        });
-
-        window.addEventListener("hashchange", syncPageMode);
-
-        syncPageMode();
-        renderComments();
-    </script>
 </body>
 
 </html>
