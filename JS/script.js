@@ -115,11 +115,11 @@ window.addEventListener("load", () => {
     if (loader) {
         setTimeout(() => {
             loader.classList.add("is-hidden");
-        }, 260);
+        }, 160);
 
         setTimeout(() => {
             loader.remove();
-        }, 300);
+        }, 200);
     }
 
     const year = document.getElementById("year");
