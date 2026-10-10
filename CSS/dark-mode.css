@@ -1,0 +1,173 @@
+body.dark-mode {
+    --surface: rgba(11, 21, 39, 0.84);
+    --surface-strong: #0d1830;
+    --surface-muted: rgba(255, 255, 255, 0.06);
+    --text: #e8edf8;
+    --muted: #aebcd6;
+    --line: rgba(148, 163, 184, 0.16);
+    --brand-soft: rgba(143, 195, 255, 0.14);
+    --shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+    color: #e8edf8;
+    background:
+        radial-gradient(circle at top left, rgba(74, 163, 255, 0.2), transparent 28%),
+        radial-gradient(circle at right 20%, rgba(116, 190, 255, 0.12), transparent 22%),
+        linear-gradient(180deg, #08101f 0%, #0c172d 55%, #0f1b34 100%);
+}
+
+body.dark-mode .loading-screen,
+body.dark-mode .gradient-loader::before {
+    background: #08101f;
+}
+
+body.dark-mode .hero-shell,
+body.dark-mody .hero-panel {    
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+}
+
+body.dark-mode .navbar {
+    background: rgba(8, 16, 31, 0.74);
+    border-color: rgba(148, 163, 184, 0.16);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+body.dark-mode #nav-links a {
+    color: #dfe7fb;
+}
+
+body.dark-mode .hamburger {
+    background: rgba(74, 163, 255, 0.16);
+}
+
+body.dark-mode .hamburger span {
+    background: #e5ecfb;
+}
+
+body.dark-mode .toggleTheme {
+    color: #e7efff;
+    background: linear-gradient(135deg, #1f6fe5, #0b1a41);
+    border: none;
+}
+
+body.dark-mode .surface-section,
+body.dark-mode .book-card,
+body.dark-mode .feature-card,
+body.dark-mode .contact-panel,
+body.dark-mode .image-caption,
+body.dark-mode .contact-methods a,
+body.dark-mode .promise-card,
+body.dark-mode .mosaic-card,
+body.dark-mode .class-card,
+body.dark-mode .resource-card,
+body.dark-mode .process-card {
+    background: rgba(12, 23, 45, 0.82);
+    border-color: rgba(148, 163, 184, 0.14);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+body.dark-mode .mosaic-card figcaption,
+body.dark-mode .class-meta span {
+    background: rgba(10, 18, 36, 0.92);
+    color: #e8edf8;
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .route-card,
+body.dark-mode .hero-highlight,
+body.dark-mode .roadmap-item {
+    background: rgba(7, 16, 34, 0.48);
+    border-color: rgba(148, 163, 184, 0.16);
+}
+
+body.dark-mode .hero-panel{
+    background: linear-gradient(160deg, rgba(7, 16, 34, 0.48), rgba(255, 255, 255, 0.16));
+    border-radius: 30px;
+}
+
+body.dark-mode .class-art,
+body.dark-mode .resource-icon,
+body.dark-mode .promise-index {
+    background: rgba(143, 195, 255, 0.12);
+    color: #8fc3ff;
+}
+
+body.dark-mode .book-link {
+    background: linear-gradient(90deg,#4aa3ff,#ff6b6b);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .contact-card {
+    background: linear-gradient(135deg, rgba(31, 111, 229, 0.2), rgba(12, 23, 45, 0.9));
+    border-color: rgba(74, 163, 255, 0.18);
+}
+
+body.dark-mode .quote-card,
+body.dark-mode .contact-panel {
+    background: linear-gradient(160deg, rgba(7, 17, 39, 0.98), rgba(22, 62, 136, 0.92));
+}
+
+body.dark-mode .about-note {
+    background: linear-gradient(135deg, rgba(31, 111, 229, 0.24), rgba(74, 163, 255, 0.12));
+    border-color: rgba(148, 163, 184, 0.14);
+}
+
+body.dark-mode .section-kicker,
+body.dark-mode .book-label,
+body.dark-mode .book-link,
+body.dark-mode .text-link,
+body.dark-mode .contact-methods i {
+    color: #8fc3ff;
+}
+
+body.dark-mode .section-heading p,
+body.dark-mode .about-note p,
+body.dark-mode .contact-card p,
+body.dark-mode .contact-panel p,
+body.dark-mode .book-card-content p,
+body.dark-mode .feature-card p,
+body.dark-mode .footer-about p,
+body.dark-mode .footer-contact p,
+body.dark-mode .stat-card span,
+body.dark-mode .promise-card p,
+body.dark-mode .class-copy p,
+body.dark-mode .resource-card p,
+body.dark-mode .process-card p,
+body.dark-mode .quote-footer,
+body.dark-mode .roadmap-item span {
+    color: #aebcd6;
+}
+
+body.dark-mode .footer,
+body.dark-mode .hero-shell {
+    background: linear-gradient(145deg, #071127, #1f6fe5);
+}
+
+body.dark-mode .footer-links a,
+body.dark-mode .footer-bottom {
+    color: rgba(231, 239, 255, 0.78);
+}
+
+body.dark-mode .btn-top {
+    background: linear-gradient(135deg, #8fc3ff, #1f6fe5);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .class-label,
+body.dark-mode .card-link,
+body.dark-mode .text-link,
+body.dark-mode .contact-methods i {
+    color: #8fc3ff;
+}
+
+body.dark-mode #nav-links.show {
+    background: rgba(8, 16, 31, 0.96);
+}
+
+body.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4aa3ff, #1f6fe5);
+    border-radius: 999px;
+}

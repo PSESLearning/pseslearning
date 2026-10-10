@@ -1,0 +1,147 @@
+@media screen and (max-width: 1100px) {
+    .class-hero,
+    .book-layout,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .book-cover-card {
+        position: static;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .class-hero,
+    .class-shell,
+    .footer-container,
+    .footer-bottom {
+        width: calc(100% - 24px);
+    }
+
+    .class-hero,
+    .book-section,
+    .contact-section {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .hero-copy h1,
+    .section-heading h2,
+    .contact-card h2 {
+        font-size: 2.1rem;
+    }
+    
+    .chapter-card{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .chapter-link {
+        width: 100%;
+    }
+
+    .btn-top {
+        min-width: 84px;
+        height: 48px;
+        right: 14px;
+        bottom: 14px;
+    }
+}
+
+/* =============
+    MOBILE HERO
+   ============= */
+
+@media screen and (max-width: 768px) {
+    .class-hero {
+        width: calc(100% - 20px);
+        margin-top: 12px;
+        padding: 22px 20px;
+        border-radius: 22px;
+        gap: 18px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(2rem, 9vw, 2.7rem);
+        line-height: 1.05;
+        letter-spacing: -0.8px;
+    }
+
+    .hero-copy p {
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .eyebrow {
+        margin-bottom: 9px;
+        font-size: 0.68rem;
+    }
+
+    .hero-actions {
+        margin-top: 18px;
+        gap: 10px;
+    }
+
+    .hero-actions .btn {
+        min-height: 44px;
+        font-size: 0.86rem;
+    }
+    
+    .hero-summary {
+        gap: 8px;
+    }
+
+    .hero-stat {
+        min-width: 0;
+        padding: 11px 8px;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .hero-stat strong {
+        margin-bottom: 3px;
+        font-size: 1.05rem;
+    }
+
+    .hero-stat span {
+        display: block;
+        font-size: 0.64rem;
+        line-height: 1.25;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .class-hero {
+        width: calc(100% - 16px);
+        padding: 19px 16px;
+        border-radius: 20px;
+    }
+
+    .hero-copy h1 {
+        font-size: 2rem;
+    }
+
+    .hero-copy p {
+        font-size: 0.84rem;
+    }
+
+    .hero-stat {
+        padding: 9px 5px;
+    }
+
+    .hero-stat strong {
+        font-size: 0.95rem;
+    }
+
+    .hero-stat span {
+        font-size: 0.58rem;
+    }
+}

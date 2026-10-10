@@ -1,0 +1,42 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Globe Circle with subtle gradient -->
+  <defs>
+    <linearGradient id="globeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"></stop>
+      <stop offset="100%" stop-color="#2563eb"></stop>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="40" fill="url(#globeGrad)" stroke="#1e40af" stroke-width="2"></circle>
+
+  <!-- Globe subtle grid lines -->
+  <circle cx="50" cy="50" r="28" stroke="white" stroke-width="1.2" fill="none"></circle>
+  <line x1="22" y1="50" x2="78" y2="50" stroke="white" stroke-width="1"></line>
+  <ellipse cx="50" cy="50" rx="14" ry="28" stroke="white" stroke-width="1" fill="none"></ellipse>
+
+  <!-- Book inside globe (stylized) -->
+  <rect x="35" y="60" width="30" height="15" fill="white" rx="3" ry="3"></rect>
+  <text x="50" y="71" text-anchor="middle" fill="#2563eb" font-size="10" font-family="Arial" font-weight="900">
+    PSES
+  </text>
+
+  <!-- Professional Parliament Pillars -->
+  <!-- Pill 1 -->
+  <rect x="44" y="28" width="3" height="10" fill="#ffffff"></rect>
+  <rect x="42.5" y="28" width="6" height="2" fill="#ffffff" rx="1"></rect>
+  <!-- Pill 2 -->
+  <rect x="51" y="28" width="3" height="10" fill="#ffffff"></rect>
+  <rect x="49.5" y="28" width="6" height="2" fill="#ffffff" rx="1"></rect>
+  <!-- Pill 3 -->
+  <rect x="58" y="28" width="3" height="10" fill="#ffffff"></rect>
+  <rect x="56.5" y="28" width="6" height="2" fill="#ffffff" rx="1"></rect>
+  <!-- Base line -->
+  <line x1="43" y1="28" x2="62" y2="28" stroke="white" stroke-width="2"></line>
+
+  <!-- Text Next to Icon -->
+  <text x="110" y="45" font-size="28" font-family="Arial" fill="#1e3a8a" font-weight="bold">
+    PSES
+  </text>
+  <text x="110" y="72" font-size="20" font-family="Arial" fill="#2563eb" font-weight="600">
+    LEARNING
+  </text>
+</svg>

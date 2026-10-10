@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PSES Learning Privacy Policy">
+  <meta name="theme-color" content="#1f6fe5">
+  <title>PSES Learning — Privacy Policy</title>
+  <link rel="icon" type="image/png" href="images/image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef7ff;
+      --surface: rgba(255, 255, 255, .9);
+      --text: #102f4a;
+      --muted: #5d7891;
+      --brand: #1f6fe5;
+      --light: #4aa3ff;
+      --line: rgba(16, 47, 74, .1);
+      --shadow: 0 24px 60px rgba(31, 111, 229, .12)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Manrope, Arial, sans-serif;
+      line-height: 1.75;
+      background: radial-gradient(circle at 0 0, rgba(74, 163, 255, .18), transparent 28%), radial-gradient(circle at 100% 18%, rgba(142, 203, 255, .18), transparent 24%), linear-gradient(180deg, #f8fcff 0%, var(--bg) 55%, #dceeff 100%)
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .page {
+      width: min(calc(100% - 100px));
+      margin: auto
+    }
+
+    .privacy-hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+      padding: 30px clamp(24px, 5vw, 58px) 44px;
+      border-radius: 30px;
+      color: #fff;
+      background: linear-gradient(135deg, #1f6fe5, #4aa3ff);
+      box-shadow: 0 30px 80px rgba(31, 111, 229, .24)
+    }
+
+    .privacy-hero:before,
+    .privacy-hero:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none
+    }
+
+    .privacy-hero:before {
+      width: 300px;
+      height: 300px;
+      right: -110px;
+      top: -150px;
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .privacy-hero:after {
+      width: 180px;
+      height: 180px;
+      left: 42%;
+      bottom: -120px;
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, .78);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+      font-weight: 800
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", Georgia, serif
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -.04em
+    }
+
+    .hero-content>p {
+      margin: 0;
+      max-width: 690px;
+      color: rgba(255, 255, 255, .84);
+      font-size: 1rem
+    }
+
+    .updated {
+      display: inline-flex;
+      margin-top: 22px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .09);
+      color: rgba(255, 255, 255, .84);
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 26px;
+      align-items: start;
+      margin: 26px auto 70px
+    }
+
+    .toc {
+      position: sticky;
+      top: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px)
+    }
+
+    .toc-title {
+      margin: 0 0 12px;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--brand);
+      font-weight: 800
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 600
+    }
+
+    .toc a:hover {
+      color: var(--brand)
+    }
+
+    .policy {
+      min-width: 0;
+      padding: clamp(25px, 4vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px)
+    }
+
+    .policy-intro {
+      margin: 0 0 30px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--light);
+      border-radius: 0 16px 16px 0;
+      background: #f4f9ff;
+      color: var(--muted)
+    }
+
+    .policy-section {
+      padding: 26px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .policy-section:first-of-type {
+      border-top: 0;
+      padding-top: 0
+    }
+
+    .section-number {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--light);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2
+    }
+
+    h3 {
+      margin: 20px 0 7px;
+      font-size: 1.15rem
+    }
+
+    p {
+      margin: 0 0 12px
+    }
+
+    .policy p,
+    .policy li {
+      color: var(--muted)
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px
+    }
+
+    li {
+      margin: 7px 0
+    }
+
+    .contact-card {
+      margin-top: 26px;
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef7ff, #f8fbff);
+      border: 1px solid rgba(74, 163, 255, .18)
+    }
+
+    .contact-card strong {
+      color: var(--text)
+    }
+
+    .email {
+      display: inline-flex;
+      margin-top: 7px;
+      color: var(--brand);
+      font-weight: 800
+    }
+
+    footer {
+      padding: 30px 0;
+      color: rgba(255, 255, 255, .78);
+      background: linear-gradient(135deg, #184c99, #2154fd)
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-weight: 800
+    }
+
+    .footer-copy {
+      margin: 3px 0 0;
+      font-size: .8rem
+    }
+
+    .footer-link {
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700
+    }
+
+    #topBtn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: none;
+      min-width: 88px;
+      min-height: 44px;
+      padding: 0 15px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--light), var(--brand));
+      box-shadow: 0 14px 30px rgba(16, 45, 135, .22);
+      cursor: pointer;
+      font: 700 .82rem Manrope, sans-serif;
+      z-index: 20
+    }
+
+    #topBtn:hover {
+      transform: translateY(-2px);
+      transition: transform .2s ease-in-out
+    }
+
+    @media(max-width:800px) {
+      .content-layout {
+        grid-template-columns: 1fr
+      }
+
+      .toc {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 18px;
+        padding: 16px 18px
+      }
+
+      .toc-title {
+        width: 100%;
+        margin-bottom: 2px
+      }
+
+      .toc a {
+        padding: 5px 0
+      }
+    }
+
+    @media(max-width:560px) {
+      .page {
+        width: calc(100% - 18px)
+      }
+
+      .privacy-hero {
+        margin-top: 9px;
+        padding: 20px 18px 30px;
+        border-radius: 22px
+      }
+
+      .hero-top {
+        margin-bottom: 42px
+      }
+
+      .brand img {
+        width: 130px
+      }
+
+      .home-link {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: .76rem
+      }
+
+      h1 {
+        font-size: 2.35rem
+      }
+
+      .hero-content>p {
+        font-size: .86rem
+      }
+
+      .content-layout {
+        margin-top: 14px;
+        margin-bottom: 45px
+      }
+
+      .policy {
+        padding: 24px 18px;
+        border-radius: 22px
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      #topBtn {
+        right: 12px;
+        bottom: 12px
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="privacy-hero page">
+
+    <div class="hero-content">
+      <span class="eyebrow">PSES Learning · Legal</span>
+      <h1>Privacy Policy</h1>
+      <p>
+        This page explains what information may be collected through PSES Learning,
+        how it may be used, and the choices available to you.
+      </p>
+      <span class="updated">Last updated: <span id="date" style="margin-left:5px"></span></span>
+    </div>
+
+  </header>
+  <main class="page content-layout">
+    <aside class="toc" aria-label="Privacy policy navigation">
+      <span class="toc-title">On this page</span>
+      <a href="#introduction">Introduction</a>
+      <a href="#collection">Information We Collect</a>
+      <a href="#use">How We Use Information</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#sharing">Data Sharing</a>
+      <a href="#security">Data Security</a>
+      <a href="#rights">Your Rights</a>
+      <a href="#contact">Contact</a>
+    </aside>
+
+    <article class="policy">
+      <p class="policy-intro">PSES Learning is an educational website focused on providing organized Political Science
+        learning resources. This policy describes the information practices currently intended for the website. Keep it
+        aligned with the actual services, analytics tools, forms, and hosting providers used by the site.</p>
+
+      <section class="policy-section" id="introduction">
+        <span class="section-number">01 · Overview</span>
+        <h2>Introduction</h2>
+        <p>We respect your privacy and aim to handle personal information responsibly when you use PSES Learning,
+          contact us, or interact with features that request information.</p>
+      </section>
+
+      <section class="policy-section" id="collection">
+        <span class="section-number">02 · Information</span>
+        <h2>Information We Collect</h2>
+        <p>Depending on how you use the website, information may include:</p>
+        <ul>
+          <li>Your name and email address when you voluntarily provide them.</li>
+          <li>Messages or other information you send through contact or feedback features.</li>
+          <li>Basic usage, browser, device, and technical information where analytics or hosting services provide it.
+          </li>
+          <li>Cookie or similar technical information used to support website functionality.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="use">
+        <span class="section-number">03 · Purpose</span>
+        <h2>How We Use Information</h2>
+        <p>Information may be used to:</p>
+        <ul>
+          <li>Respond to questions, feedback, or support requests.</li>
+          <li>Maintain and improve the website and learning experience.</li>
+          <li>Understand general website usage and performance.</li>
+          <li>Protect the website against misuse, technical problems, or security issues.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="cookies">
+        <span class="section-number">04 · Cookies</span>
+        <h2>Cookies and Similar Technologies</h2>
+        <p>PSES Learning may use cookies or similar technologies for essential functionality, preferences, performance,
+          or analytics, depending on the tools enabled on the website.</p>
+        <p>You can manage or disable cookies through your browser settings. Disabling some cookies may affect certain
+          website features.</p>
+      </section>
+
+      <section class="policy-section" id="sharing">
+        <span class="section-number">05 · Disclosure</span>
+        <h2>Data Sharing</h2>
+        <p>We do not intend to sell personal information. Information may be processed by service providers that help
+          operate the website, such as hosting, analytics, email, or security providers, where applicable.</p>
+        <p>Information may also be disclosed when required by applicable law or when necessary to protect the website,
+          its users, or legal rights.</p>
+      </section>
+
+      <section class="policy-section" id="security">
+        <span class="section-number">06 · Protection</span>
+        <h2>Data Security</h2>
+        <p>Reasonable technical and organizational measures should be used to protect information from unauthorized
+          access, alteration, disclosure, or misuse. However, no internet transmission or storage system can be
+          guaranteed to be completely secure.</p>
+      </section>
+
+      <section class="policy-section" id="rights">
+        <span class="section-number">07 · Your Choices</span>
+        <h2>Your Rights</h2>
+        <p>Depending on applicable law and the information involved, you may be able to request access to, correction
+          of, or deletion of personal information you have provided.</p>
+        <p>To make a privacy-related request, contact PSES Learning using the details below.</p>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <span class="section-number">08 · Get in Touch</span>
+        <h2>Contact Us</h2>
+        <p>For privacy questions, requests, or concerns, contact:</p>
+        
+        <div class="contact-card">
+          <strong>PSES Learning</strong><br>
+          <a class="email"href="mailto:pseslearning@gmail.com">pseslearning@gmail.com</a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">PSES Learning</div>
+        <p class="footer-copy">© <span id="year"></span> PSES Learning. All Rights Reserved.</p>
+      </div><a class="footer-link" href="index.html">Return to PSES Learning →</a>
+    </div>
+  </footer>
+
+  <button id="topBtn" type="button" aria-label="Scroll to top">↑ Back to top</button>
+
+  <script>
+    const now = new Date();
+    document.getElementById("date").textContent = now.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+    document.getElementById("year").textContent = now.getFullYear();
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => { topBtn.style.display = window.scrollY > 350 ? "block" : "none" });
+    topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
+</body>
+
+</html>
