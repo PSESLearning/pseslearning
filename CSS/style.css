@@ -746,11 +746,6 @@ a:focus-visible {
     fill: #4aa3ff;
 }
 
-.contact-methods i {
-    color: var(--brand);
-    font-size: 1.1rem;
-}
-
 .contact-panel {
     padding: 28px;
 }
