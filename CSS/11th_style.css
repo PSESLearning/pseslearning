@@ -368,8 +368,23 @@ img {
     border-radius: 999px;
 }
 
+.site-icon {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: -0.2em;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: #4aa3ff;
+}
+
 .contact-card {
-    padding: 30px;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(25, 71, 229, 0.06), rgba(255, 255, 255, 0.95));
+    border: 1px solid rgba(25, 71, 229, 0.08);
 }
 
 .contact-methods {
@@ -385,12 +400,8 @@ img {
     padding: 16px 18px;
     border-radius: 18px;
     background: #fff;
-    border: 1px solid var(--page-line);
+    border: 1px solid var(--line);
     font-weight: 700;
-}
-
-.contact-methods i {
-    color: var(--page-brand);
 }
 
 .footer {
