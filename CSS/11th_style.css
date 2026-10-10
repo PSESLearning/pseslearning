@@ -381,10 +381,7 @@ img {
 }
 
 .contact-card {
-    padding: 32px;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, rgba(25, 71, 229, 0.06), rgba(255, 255, 255, 0.95));
-    border: 1px solid rgba(25, 71, 229, 0.08);
+    padding: 30px;
 }
 
 .contact-methods {
@@ -400,7 +397,7 @@ img {
     padding: 16px 18px;
     border-radius: 18px;
     background: #fff;
-    border: 1px solid var(--line);
+    border: 1px solid var(--page-line);
     font-weight: 700;
 }
 
