@@ -574,16 +574,30 @@ a:focus-visible {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.resource-card i {
-    width: 46px;
-    height: 46px;
+/* =========================================
+   ICONS
+   ========================================= */
+.icon-container {
+    width: 42px;
+    height: 42px;   
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    color: #fff;
     border-radius: 12px;
+    fill: #fff;
     background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+}
+
+.site-icon {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: -0.2em;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .image-caption img {
@@ -729,6 +743,7 @@ a:focus-visible {
     background: #fff;
     border: 1px solid var(--line);
     font-weight: 700;
+    fill: #4aa3ff;
 }
 
 .contact-methods i {

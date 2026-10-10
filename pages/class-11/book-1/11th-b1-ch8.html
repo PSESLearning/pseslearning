@@ -501,6 +501,36 @@
         <p>&copy; 2026 PSES Learning | Made for Students</p>
     </footer>
 
+    <script>
+        /* =====================================================
+           WHATSAPP SHARE BUTTON
+        ===================================================== */
+
+        const whatsappShareBtn =
+            document.getElementById("whatsappShareBtn");
+
+        whatsappShareBtn.addEventListener("click", () => {
+
+            const quizUrl = window.location.href.split('/').slice(0, -1).join('/') + '/ch8.html';
+
+            const message =
+                "PSES Learning Political Science Quiz\n\n" +
+                "इस Quiz को जरूर Try करें और अपनी तैयारी को Check करें।\n\n" +
+                quizUrl;
+
+            const whatsappUrl =
+                "https://wa.me/?text=" +
+                encodeURIComponent(message);
+
+            window.open(
+                whatsappUrl,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        });
+    </script>
+
 </body>
 
 </html>

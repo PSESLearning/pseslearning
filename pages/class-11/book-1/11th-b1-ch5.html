@@ -482,7 +482,13 @@
                 </a>
                 <a class="resource-card" href="../../../materials/class-11/Book-1/quiz/ch5.html">
                     <div class="resource-content">
-                        <span class="resource-icon">QZ</span>
+                        <div class="resource-head">
+                            <span class="resource-icon">QZ</span>
+                            <button id="whatsappShareBtn" type="button" class="share-button">
+                                <span class="share-symbol">↗</span>
+                                <span>Share Quiz</span>
+                            </button>
+                        </div>
                         <h3>Let's Play Quiz</h3>
                         <p>Jump into quiz mode for a more active revision session.</p>
                         <div class="resource-foot">
@@ -500,6 +506,36 @@
     <footer>
         <p>&copy; 2026 PSES Learning | Made for Students</p>
     </footer>
+
+    <script>
+        /* =====================================================
+           WHATSAPP SHARE BUTTON
+        ===================================================== */
+
+        const whatsappShareBtn =
+            document.getElementById("whatsappShareBtn");
+
+        whatsappShareBtn.addEventListener("click", () => {
+
+            const quizUrl = window.location.origin + "/materials/class-11/Book-1/quiz/ch5.html";
+
+            const message =
+                "PSES Learning Political Science Quiz\n\n" +
+                "इस Quiz को जरूर Try करें और अपनी तैयारी को Check करें।\n\n" +
+                quizUrl;
+
+            const whatsappUrl =
+                "https://wa.me/?text=" +
+                encodeURIComponent(message);
+
+            window.open(
+                whatsappUrl,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        });
+    </script>
 
 </body>
 

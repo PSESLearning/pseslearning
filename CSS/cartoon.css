@@ -1,0 +1,393 @@
+/* =========================================================
+   CARTOON BASED QUESTIONS
+   PSES Learning
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Manrope", sans-serif;
+    background: #f0f8ff;
+    color: #172033;
+}
+
+
+/* =========================================================
+   CARTOON SECTION
+   ========================================================= */
+
+.cartoons-section {
+    width: 100%;
+    padding: 55px 20px 65px;
+    background: #f0f8ff;
+}
+
+.cartoons-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CARTOON HEADER
+   ========================================================= */
+
+.cartoons-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cartoons-header h1 {
+    margin: 0 0 10px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #172033;
+}
+
+.cartoons-header p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.cartoon-container {
+    width: min(1100px, calc(100% - 80px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* ---------- Chapter Heading ---------- */
+
+.cartoon-content {
+    margin: 0;
+    padding: 22px 25px;
+
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.4;
+    text-align: center;
+
+    color: #172033;
+    background: #ffffff;
+
+    border: 1px solid #dbe5ef;
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.cartoon-content:hover {
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+    
+    transition:
+        box-shadow 0.2s ease;
+} 
+
+.cartoon-content>h1 span {
+    display: block;
+    margin-top: 5px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 0.65em;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+
+/* ---------- Cartoon Title ---------- */
+
+.cartoon-content>h2 {
+    margin: 35px 0 25px;
+
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+
+    color: #172033;
+}
+
+/* =========================================================
+   CARTOON IMAGE
+   ========================================================= */
+
+.cartoon-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cartoon-item figure {
+    width: min(500px, 100%);
+    margin: 0;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #dbe5ef;
+    border-radius: 18px;
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08),
+        0 2px 8px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+}
+
+.cartoon-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: #f1f5f9;
+    transition: transform 0.3s ease;
+}
+
+.cartoon-item img:hover {
+    transform: scale(1.015);
+}
+
+.cartoon-item figcaption {
+    padding: 14px 6px 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    color: #475569;
+}
+
+
+/* =========================================================
+   QUESTIONS SECTION
+   ========================================================= */
+
+.question-section {
+    width: min(1050px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 20px 0 80px;
+}
+
+/* =========================================================
+   QUESTION CARD
+   ========================================================= */
+
+.question-container {
+    margin-bottom: 20px;
+    padding: 24px 26px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe5ef;
+    border-left: 5px solid #2563eb;
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 20px rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.question-container:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ---------- Question ---------- */
+
+.question {
+    margin: 0 0 12px;
+
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1.7;
+
+    color: #172033;
+}
+
+
+/* ---------- Answer ---------- */
+
+.answer {
+    margin: 0;
+
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.8;
+
+    color: #475569;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    padding: 18px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .cartoons-section {
+        padding: 45px 18px 55px;
+    }
+
+    .cartoon-item figure {
+        width: min(460px, 100%);
+        padding: 12px;
+    }
+
+    .question-section {
+        width: min(900px, calc(100% - 36px));
+    }
+
+    .question-container {
+        padding: 21px 22px;
+    }
+
+    .cartoon-container {
+        grid-template-columns: 1fr;
+        width: min(600px, calc(100% - 40px));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .cartoons-section {
+        padding: 35px 12px 45px;
+    }
+
+    .cartoons-header {
+        margin-bottom: 25px;
+    }
+
+    .cartoons-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .cartoons-header p {
+        font-size: 0.82rem;
+    }
+
+    .cartoon-item figure {
+        width: 100%;
+        padding: 8px;
+        border-radius: 13px;
+    }
+
+    .cartoon-item img {
+        border-radius: 8px;
+    }
+
+    .cartoon-item figcaption {
+        padding: 11px 4px 2px;
+        font-size: 0.78rem;
+    }
+
+
+    /* Questions */
+
+    .question-section {
+        width: calc(100% - 24px);
+        padding-bottom: 55px;
+    }
+
+    .question-section>h1 {
+        padding: 18px 15px;
+        border-radius: 14px;
+    }
+
+    .question-section>h2 {
+        margin: 28px 0 20px;
+        font-size: 1.2rem;
+    }
+
+    .question-container {
+        margin-bottom: 15px;
+        padding: 18px 17px;
+        border-left-width: 4px;
+        border-radius: 11px;
+    }
+
+    .question {
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+
+    .answer {
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .cartoons-section {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .cartoons-header h1 {
+        font-size: 1.55rem;
+    }
+
+    .cartoons-header p {
+        font-size: 0.75rem;
+    }
+
+    .question-section {
+        width: calc(100% - 16px);
+    }
+
+    .question-section>h1 {
+        padding: 16px 12px;
+        font-size: 1.45rem;
+    }
+
+    .question-section>h2 {
+        font-size: 1.08rem;
+    }
+
+    .question-container {
+        padding: 16px 14px;
+    }
+
+    .question {
+        font-size: 0.88rem;
+    }
+
+    .answer {
+        font-size: 0.84rem;
+    }
+}

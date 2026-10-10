@@ -19,6 +19,7 @@
 .nav-logo img {
     width: 260px;
     max-width: 100%;
+    height: auto;
 }
 
 #nav-links {
@@ -77,6 +78,7 @@
     display: none;
     width: 44px;
     height: 44px;
+    border: none;
     border-radius: 20px;
     align-items: center;
     justify-content: center;

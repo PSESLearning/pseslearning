@@ -115,11 +115,11 @@ window.addEventListener("load", () => {
     if (loader) {
         setTimeout(() => {
             loader.classList.add("is-hidden");
-        }, 260);
+        }, 200);
 
         setTimeout(() => {
             loader.remove();
-        }, 500);
+        }, 220);
     }
 
     const year = document.getElementById("year");
@@ -128,5 +128,5 @@ window.addEventListener("load", () => {
     }
 
     revealSections();
-    toggleTopButton();
+    updateThemeButton();
 });
