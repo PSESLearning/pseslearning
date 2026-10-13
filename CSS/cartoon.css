@@ -19,6 +19,10 @@ body {
     color: #172033;
 }
 
+.navbar {
+    width: 100%;
+    border-radius: 0;
+}
 
 /* =========================================================
    CARTOON SECTION
@@ -147,10 +151,8 @@ body {
 
 .cartoon-item img {
     display: block;
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
+    width: 450px;
+    max-height: 300px;
     margin: 0 auto;
     border-radius: 10px;
     background: #f1f5f9;
@@ -170,6 +172,26 @@ body {
     color: #475569;
 }
 
+.view-cartoon-button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 10px 20px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.view-cartoon-button:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
 
 /* =========================================================
    QUESTIONS SECTION
@@ -217,7 +239,7 @@ body {
     margin: 0 0 12px;
 
     font-size: 1.1rem;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.7;
 
     color: #172033;
