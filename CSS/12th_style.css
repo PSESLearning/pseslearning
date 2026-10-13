@@ -421,6 +421,18 @@ img {
     transform: rotate(-10deg);
 }
 
+.site-icon {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: -0.2em;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: #4aa3ff;
+}
+
 .contact-card {
     padding: 30px;
 }
@@ -440,10 +452,6 @@ img {
     background: #fff;
     border: 1px solid var(--page-line);
     font-weight: 700;
-}
-
-.contact-methods i {
-    color: var(--page-brand);
 }
 
 .footer {
